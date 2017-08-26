@@ -1,5 +1,16 @@
 module Typeclasses where
 
+data DayOfTheWeek
+    = Mon | Tue | Wed | Thu | Fri | Sat | Sun
+    deriving (Eq, Show)
+
+instance Ord DayOfTheWeek where
+    compare Fri Fri = EQ
+    compare Fri _ = GT
+    compare _ Fri = LT
+    compare _ _ = EQ
+
+
 data TisAnInteger =
     TisAn Integer
 
@@ -53,4 +64,30 @@ instance (Eq a, Eq b) => Eq (EitherOr a b) where
     (==) (Hello a) (Hello a') = a == a'
     (==) (Goodbye b) (Goodbye b') = b == b'
     (==) _ _ = False
+
+data Person = Person Bool deriving Show
+
+printPerson :: Person -> IO ()
+printPerson person = putStrLn (show person)
+
+data Mood
+    = Blah
+    | Woot deriving (Eq, Show)
+
+settleDown x =
+    if x == Woot then
+        Blah
+    else
+        x
+
+type Subject = String
+type Verb = String
+type Object = String
+
+data Sentence =
+    Sentence Subject Object Verb
+    deriving (Eq, Show)
+
+s1 = Sentence "dogs" "drool"
+s2 = Sentence "Julie" "loves" "dogs"
 
