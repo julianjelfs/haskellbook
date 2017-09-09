@@ -43,3 +43,8 @@ dividedBy num denom =
         go n d count
             | n < d = (count, n)
             | otherwise = go (n - d) d (count + 1)
+
+mc91 :: Integral a => a -> a
+mc91 n
+    | n > 100 = n - 10
+    | otherwise = mc91 . mc91 $ n + 11
