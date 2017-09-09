@@ -13,13 +13,10 @@ yz :: Y -> Z
 yz = undefined
 
 xform :: (X, Y) -> (Z, Z)
-xform (x, y) =
-    (xz x, yz y)
+xform (x, y) = (xz x, yz y)
 
 munge :: (x -> y) -> (y -> (w, z)) -> x -> w
 munge xtoy ytowz x =
-    let
-        y = xtoy x
-        (w, z) = ytowz y
-    in
-        w
+  let y = xtoy x
+      (w, z) = ytowz y
+  in w

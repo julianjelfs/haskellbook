@@ -15,17 +15,15 @@ c' :: a -> b -> b
 c' a b = b
 
 r :: [a] -> [a]
-r [] = []
-r [x] = []
+r []     = []
+r [x]    = []
 r (_:xs) = xs
 
 co :: (b -> c) -> (a -> b) -> a -> c
-co bToc aTob a =
-    bToc $ aTob a
+co bToc aTob a = bToc $ aTob a
 
 a :: (a -> c) -> a -> a
 a _ a = a
 
 a' :: (a -> b) -> a -> b
-a' aTob a =
-    aTob a
+a' aTob a = aTob a

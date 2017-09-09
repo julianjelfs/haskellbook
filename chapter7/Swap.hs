@@ -1,6 +1,6 @@
 module Swap where
 
-import Data.List
+import           Data.List
 
 jung :: [Int] -> Int
 jung xs = head $ sort xs
@@ -19,5 +19,5 @@ chk aTob a b = b == aTob a
 
 arith :: Num b => (a -> b) -> Integer -> a -> b
 arith aTob i a = b * (fromInteger i)
-    where
-        b = aTob a
+  where
+    b = aTob a
