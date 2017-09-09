@@ -22,3 +22,24 @@ recMult x y = go x 1
         go agg count
             | count == y = agg
             | otherwise = go (agg + x) (count+1)
+
+data DivideByResult a =
+    Result (a, a)
+    | DivideByZero
+    deriving (Show)
+
+dividedBy :: Integral a => a -> a -> DivideByResult a
+dividedBy num 0 = DivideByZero
+dividedBy num denom =
+    let
+        (quo, rem) = go (abs num) (abs denom) 0
+        negate = (length . filter (\x -> x < 0) $ [num, denom]) == 1
+    in
+        if negate then
+            Result (quo * (-1), rem)
+        else
+            Result (quo, rem)
+    where
+        go n d count
+            | n < d = (count, n)
+            | otherwise = go (n - d) d (count + 1)
