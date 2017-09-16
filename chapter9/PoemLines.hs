@@ -8,17 +8,10 @@ fourthSen = "Could frame thy fearful symmetry?"
 sentences = firstSen ++ secondSen ++ thirdSen ++ fourthSen
 
 myLines :: String -> [String]
-myLines para = reverse $ go [] para
-  where
-    go lines para
-      | para == [] = lines
-      | otherwise =
-        let
-          trim = dropWhile ((==) '\n') para
-          line = takeWhile ((/=) '\n') trim
-          rest = dropWhile ((/=) '\n') trim
-        in
-          go (line : lines) rest
+myLines = splitOn '\n'
+
+myWords :: String -> [String]
+myWords = splitOn ' '
 
 splitOn :: Char -> String -> [String]
 splitOn c sentence = reverse $ go [] sentence
