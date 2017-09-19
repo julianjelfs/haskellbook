@@ -48,7 +48,6 @@ mc91 n
   | n > 100 = n - 10
   | otherwise = mc91 . mc91 $ n + 11
 
-
 digitToWord :: Int -> String
 digitToWord 0 = "zero"
 digitToWord 1 = "one"
@@ -71,8 +70,5 @@ digits n = reverse $ go n []
         let (h, t) = divMod num 10
         in t : go h ds
 
-
 wordNumber :: Int -> String
 wordNumber n = concat . intersperse "-" . map digitToWord . digits $ n
-
-
