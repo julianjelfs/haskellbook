@@ -1,8 +1,11 @@
 module PoemLines where
 
 firstSen = "Tyger Tyger, burning bright\n"
+
 secondSen = "In the forests of the night\n"
+
 thirdSen = "What immortal hand or eye\n"
+
 fourthSen = "Could frame thy fearful symmetry?"
 
 sentences = firstSen ++ secondSen ++ thirdSen ++ fourthSen
@@ -19,9 +22,7 @@ splitOn c sentence = reverse $ go [] sentence
     go words sentence
       | sentence == [] = words
       | otherwise =
-        let
-          trim = dropWhile ((==) c) sentence
-          word = takeWhile ((/=) c) trim
-          next = dropWhile ((/=) c) trim
-        in
-          go (word : words) next
+        let trim = dropWhile ((==) c) sentence
+            word = takeWhile ((/=) c) trim
+            next = dropWhile ((/=) c) trim
+        in go (word : words) next
