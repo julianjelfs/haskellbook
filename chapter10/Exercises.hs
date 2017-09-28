@@ -16,3 +16,7 @@ letterCombos =
 
 wordCombos =
   combos nouns verbs
+
+seekritFunct x =
+  (/) (fromIntegral (sum (map length (words x))))
+    (fromIntegral (length (words x)))
