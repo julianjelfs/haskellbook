@@ -18,12 +18,10 @@ theDatabase =
   ]
 
 mostRecent :: [DatabaseItem] -> UTCTime
-mostRecent =
-  maximum . getTimes
+mostRecent = maximum . getTimes
 
 sumDb :: [DatabaseItem] -> Integer
-sumDb =
-  sum . filterDbNumber
+sumDb = sum . filterDbNumber
 
 avgDb :: [DatabaseItem] -> Double
 avgDb db =
@@ -31,16 +29,20 @@ avgDb db =
 
 getTimes :: [DatabaseItem] -> [UTCTime]
 getTimes db =
-  foldr (\a b ->
-    case a of
-      DbDate t -> t : b
-      _ -> b
-  ) [] db
+  foldr
+    (\a b ->
+       case a of
+         DbDate t -> t : b
+         _        -> b)
+    []
+    db
 
 filterDbNumber :: [DatabaseItem] -> [Integer]
 filterDbNumber db =
-  foldr (\a b ->
-    case a of
-      DbNumber n -> n : b
-      _ -> b
-  ) [] db
+  foldr
+    (\a b ->
+       case a of
+         DbNumber n -> n : b
+         _          -> b)
+    []
+    db
