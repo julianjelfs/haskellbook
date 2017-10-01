@@ -51,7 +51,7 @@ isCar _         = False
 
 isPlane :: Vehicle -> Bool
 isPlane (Plane _ _) = True
-isPlane _         = False
+isPlane _           = False
 
 areCars :: [Vehicle] -> [Bool]
 areCars = map isCar

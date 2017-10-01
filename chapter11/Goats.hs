@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleInstances #-}
+
 module Goats where
 
 class TooMany a where
@@ -20,4 +21,5 @@ instance (TooMany a) => TooMany (a, a) where
   tooMany (n1, n2) = tooMany n2 || tooMany n1
 
 newtype Goats =
-  Goats Int deriving (Eq, Show)
+  Goats Int
+  deriving (Eq, Show)
