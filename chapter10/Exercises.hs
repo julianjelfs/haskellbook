@@ -61,7 +61,14 @@ squishAgain = squishMap id
 
 compareBy :: Ordering -> (a -> a -> Ordering) -> [a] -> a
 compareBy _ _ [] = error "error can't handle empty list"
-compareBy o f xs = foldr (\x m -> if f x m == o then x else m) (head xs) xs
+compareBy o f xs =
+  foldr
+    (\x m ->
+       if f x m == o
+         then x
+         else m)
+    (head xs)
+    xs
 
 myMaximumBy :: (a -> a -> Ordering) -> [a] -> a
 myMaximumBy = compareBy GT
