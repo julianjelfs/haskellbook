@@ -31,6 +31,14 @@ postorder :: BinaryTree a -> [a]
 postorder Leaf = []
 postorder (Node left a right) = (inorder left) ++ (inorder right) ++ [a]
 
+foldTree :: (a -> b -> b) -> b -> BinaryTree a -> b
+foldTree _ b Leaf = b
+foldTree reducer b (Node left a right) =
+  let
+    foldLeft = foldTree reducer (reducer a b) left
+  in
+    foldTree reducer foldLeft right
+
 testTree :: BinaryTree Integer
 testTree = Node (Node Leaf 1 Leaf) 2 (Node Leaf 3 Leaf)
 
@@ -51,3 +59,10 @@ testPostorder =
   if postorder testTree == [1,3,2]
   then putStrLn "Postorder fine!"
   else putStrLn "Bad news bears."
+
+testFoldTree :: IO()
+testFoldTree =
+  if foldTree (+) 0 testTree == 6
+  then putStrLn "foldTree fine!"
+  else putStrLn "Bad news bears."
+
