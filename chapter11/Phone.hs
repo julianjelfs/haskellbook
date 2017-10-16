@@ -43,13 +43,10 @@ stringToTaps :: Phone -> String -> [(Digit, Presses)]
 stringToTaps phone = foldr (\c res -> (reverseTaps phone c) ++ res) []
 
 convoToTaps :: Phone -> [String] -> [[(Digit, Presses)]]
-convoToTaps phone =
-  map (stringToTaps phone)
+convoToTaps phone = map (stringToTaps phone)
 
 fingerTaps :: [(Digit, Presses)] -> Presses
-fingerTaps presses =
-  sum $ map snd presses
-
+fingerTaps presses = sum $ map snd presses
 
 convo :: [String]
 convo =
