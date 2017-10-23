@@ -7,6 +7,60 @@ import           Data.Maybe    (isJust)
 import           System.Exit   (exitSuccess)
 import           System.Random (randomRIO)
 
+type WordList = [String]
+
+allWords :: IO WordList
+allWords = do
+  dict <- readFile "data/dict.txt"
+  return (lines dict)
+
+minWordLength :: Int
+minWordLength = 5
+
+maxWordLength :: Int
+maxWordLength = 9
+
+gameWords :: IO WordList
+gameWords = do
+  aw <- allWords
+  return (filter suitableLength aw)
+  where
+    suitableLength w =
+      let l = length w
+      in l > minWordLength && l < maxWordLength
+
+randomWord :: WordList -> IO String
+randomWord wl = do
+  randomIndex <- randomRIO (0, (length wl) - 1)
+  return $ wl !! randomIndex
+
+randomWord' :: IO String
+randomWord' = gameWords >>= randomWord
+
+data Puzzle =
+  Puzzle String
+         [Maybe Char]
+         [Char]
+
+instance Show Puzzle where
+  show (Puzzle _ discovered guessed) =
+    (intersperse ' ' $ fmap renderPuzzleChar discovered)
+      ++ "  Guessed so far: " ++ guessed
+
+freshPuzzle :: String -> Puzzle
+freshPuzzle w =
+  Puzzle w (map (const Nothing) w) []
+
+charInWord :: Puzzle -> Char -> Bool
+charInWord (Puzzle w _ _) c = elem c w
+
+alreadyGuessed :: Puzzle -> Char -> Bool
+alreadyGuessed (Puzzle _ _ g) c = elem c g
+
+renderPuzzleChar :: (Maybe Char) -> Char
+renderPuzzleChar (Just c) = c
+renderPuzzleChar Nothing = '_'
+
 main :: IO ()
 main = do
   putStrLn "hello world"
