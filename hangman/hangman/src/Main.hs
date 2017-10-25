@@ -17,10 +17,10 @@ allWords = do
   return $ WordList (lines dict)
 
 minWordLength :: Int
-minWordLength = 5
+minWordLength = 4
 
 maxWordLength :: Int
-maxWordLength = 9
+maxWordLength = 7
 
 gameWords :: IO WordList
 gameWords = do
@@ -45,9 +45,12 @@ data Puzzle =
          [Char]
 
 instance Show Puzzle where
-  show (Puzzle _ discovered guessed) =
+  show (Puzzle word discovered guessed) =
     (intersperse ' ' $ fmap renderPuzzleChar discovered) ++
-    "  Guessed so far: " ++ guessed
+    "  Guessed so far: " ++ allGuesses
+    where
+      allGuesses =
+        guessed ++ (correctGuesses discovered)
 
 freshPuzzle :: String -> Puzzle
 freshPuzzle w = Puzzle w (map (const Nothing) w) []
@@ -55,13 +58,28 @@ freshPuzzle w = Puzzle w (map (const Nothing) w) []
 charInWord :: Puzzle -> Char -> Bool
 charInWord (Puzzle w _ _) c = elem c w
 
+correctGuesses :: [Maybe Char] -> [Char]
+correctGuesses discovered =
+  foldr
+    (\mc res ->
+      case mc of
+        Just c -> c : res
+        Nothing -> res
+    ) [] discovered
+
 alreadyGuessed :: Puzzle -> Char -> Bool
-alreadyGuessed (Puzzle _ _ g) c = elem c g
+alreadyGuessed (Puzzle _ discovered guessed) c =
+  (elem c guessed) || (elem c (correctGuesses discovered))
 
 fillInCharacter :: Puzzle -> Char -> Puzzle
 fillInCharacter (Puzzle word discovered guessed) c =
-  Puzzle word updated (c : guessed)
+  Puzzle word updated newGuessed
   where
+    newGuessed =
+      if elem c word then
+        guessed
+      else
+        (c : guessed)
     zipper letter slot =
       if letter == c
         then Just c
