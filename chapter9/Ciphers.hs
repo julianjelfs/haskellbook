@@ -14,3 +14,8 @@ caesar str = map (offsetChar 3) str
 
 uncaesar :: String -> String
 uncaesar str = map (offsetChar (-3)) str
+
+main :: IO ()
+main = do
+  inp <- getLine
+  putStrLn $ caesar inp

@@ -24,3 +24,8 @@ cipherLetter (i, res) letter =
   in (i + 1, res ++ [c])
 
 cipher str = snd $ foldl cipherLetter (0, []) str
+
+main :: IO ()
+main = do
+  inp <- getLine
+  putStrLn $ cipher inp

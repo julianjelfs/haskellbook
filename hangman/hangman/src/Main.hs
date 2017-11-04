@@ -49,8 +49,7 @@ instance Show Puzzle where
     (intersperse ' ' $ fmap renderPuzzleChar discovered) ++
     "  Guessed so far: " ++ allGuesses
     where
-      allGuesses =
-        guessed ++ (correctGuesses discovered)
+      allGuesses = guessed ++ (correctGuesses discovered)
 
 freshPuzzle :: String -> Puzzle
 freshPuzzle w = Puzzle w (map (const Nothing) w) []
@@ -62,10 +61,11 @@ correctGuesses :: [Maybe Char] -> [Char]
 correctGuesses discovered =
   foldr
     (\mc res ->
-      case mc of
-        Just c -> c : res
-        Nothing -> res
-    ) [] discovered
+       case mc of
+         Just c  -> c : res
+         Nothing -> res)
+    []
+    discovered
 
 alreadyGuessed :: Puzzle -> Char -> Bool
 alreadyGuessed (Puzzle _ discovered guessed) c =
@@ -76,10 +76,9 @@ fillInCharacter (Puzzle word discovered guessed) c =
   Puzzle word updated newGuessed
   where
     newGuessed =
-      if elem c word then
-        guessed
-      else
-        (c : guessed)
+      if elem c word
+        then guessed
+        else (c : guessed)
     zipper letter slot =
       if letter == c
         then Just c
@@ -93,43 +92,41 @@ handleGuess puzzle guess = do
     (_, True) -> do
       putStrLn "You already guessed that character, pick something else!"
       return puzzle
-
     (True, _) -> do
       putStrLn "This character was in the word - awesome!"
       return $ fillInCharacter puzzle guess
-
     (False, _) -> do
       putStrLn "Nope, bad luck, try again!"
       return $ fillInCharacter puzzle guess
 
 gameOver :: Puzzle -> IO ()
 gameOver (Puzzle word _ guessed) =
-  if (length guessed) > 7 then
-    do
+  if (length guessed) > 7
+    then do
       putStrLn "You lose!"
       putStrLn $ "The word was: " ++ word
       exitSuccess
-  else return ()
+    else return ()
 
 gameWin :: Puzzle -> IO ()
 gameWin (Puzzle _ discovered _) =
-  if all isJust discovered then
-    do
+  if all isJust discovered
+    then do
       putStrLn "You win!"
       exitSuccess
-  else return ()
+    else return ()
 
 runGame :: Puzzle -> IO ()
-runGame puzzle = forever $ do
-  gameOver puzzle
-  gameWin puzzle
-  putStrLn $ "Current puzzle is " ++ show puzzle
-  putStr "Guess a letter: "
-  guess <- getLine
-  case guess of
-    [c] -> handleGuess puzzle c >>= runGame
-    _ -> putStrLn "Your guess must be a single character"
-
+runGame puzzle =
+  forever $ do
+    gameOver puzzle
+    gameWin puzzle
+    putStrLn $ "Current puzzle is " ++ show puzzle
+    putStr "Guess a letter: "
+    guess <- getLine
+    case guess of
+      [c] -> handleGuess puzzle c >>= runGame
+      _   -> putStrLn "Your guess must be a single character"
 
 renderPuzzleChar :: (Maybe Char) -> Char
 renderPuzzleChar (Just c) = c
