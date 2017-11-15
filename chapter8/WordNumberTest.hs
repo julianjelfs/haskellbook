@@ -5,6 +5,42 @@ import Test.QuickCheck
 import Recursion (digitToWord, digits, wordNumber)
 import Data.List (sort)
 
+--plus associativity
+plusAssociative :: (Eq a, Num a) => a -> a -> a -> Bool
+plusAssociative x y z =
+  x + (y + z) == (x + y) + z
+
+testPlusAssociative :: IO ()
+testPlusAssociative =
+  quickCheck (plusAssociative :: Int -> Int -> Int -> Bool)
+
+--plus commutative
+plusCommutative :: (Eq a, Num a) => a -> a -> Bool
+plusCommutative x y =
+  x + y == y + x
+
+testPlusCommutative :: IO ()
+testPlusCommutative =
+  quickCheck (plusCommutative :: Int -> Int -> Bool)
+
+--mult associative
+multAssociative :: (Eq a, Num a) => a -> a -> a -> Bool
+multAssociative x y z =
+  x * (y * z) == (x * y) * z
+
+testMultAssociative :: IO ()
+testMultAssociative =
+  quickCheck (multAssociative :: Int -> Int -> Int -> Bool)
+
+--mult commutative
+multCommutative :: (Eq a, Num a) => a -> a -> Bool
+multCommutative x y =
+  x * y == y * x
+
+testMultCommutative :: IO ()
+testMultCommutative =
+  quickCheck (multCommutative :: Int -> Int -> Bool)
+
 listOrdered :: (Ord a) => [a] -> Bool
 listOrdered xs =
   snd $ foldr go (Nothing, True) xs
