@@ -5,6 +5,22 @@ import Test.QuickCheck
 import Recursion (digitToWord, digits, wordNumber)
 import Data.List (sort)
 
+genPos :: Gen Int
+genPos = abs `fmap` (arbitrary :: Gen Int) `suchThat` (> 0)
+
+genPair = do
+  x <- genPos
+  y <- genPos
+  return (x, y)
+
+quotRemProp :: (Integral a, Eq a) => (a, a) -> Bool
+quotRemProp (x, y) =
+  (quot x y) * y + (rem x y) == x
+
+testQuotRem :: IO ()
+testQuotRem = do
+  quickCheck $ forAll genPair $ quotRemProp
+
 --plus associativity
 plusAssociative :: (Eq a, Num a) => a -> a -> a -> Bool
 plusAssociative x y z =
