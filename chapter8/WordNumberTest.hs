@@ -5,6 +5,36 @@ import Test.QuickCheck
 import Recursion (digitToWord, digits, wordNumber)
 import Data.List (sort)
 
+add3 =
+  (+) 3
+
+add5 =
+  (+) 5
+
+applyProp :: Int -> Bool
+applyProp a =
+  (add3 $ a) == (add3 a)
+
+testApply :: IO ()
+testApply =
+  quickCheck (applyProp :: Int -> Bool)
+
+composeProp :: Int -> Bool
+composeProp a =
+  (add3 . add5 $ a) == ((\a -> add5 (add3 a)) a)
+
+testCompose :: IO ()
+testCompose =
+  quickCheck (composeProp :: Int -> Bool)
+
+revProp :: (Eq a) => [a] -> Bool
+revProp l =
+  (reverse . reverse $ l) == (id l)
+
+testRev :: IO ()
+testRev =
+  quickCheck (revProp :: [Int] -> Bool)
+
 genPos :: Gen Int
 genPos = abs `fmap` (arbitrary :: Gen Int) `suchThat` (> 0)
 
@@ -24,6 +54,24 @@ testQuotRem = do
 testDivMod :: IO ()
 testDivMod = do
   quickCheck $ forAll genPair $ (mathProp div mod)
+
+--power associativity
+powAssociative :: (Eq a, Integral a) => a -> a -> a -> Bool
+powAssociative x y z =
+  x ^ (y ^ z) == (x ^ y) ^ z
+
+testPowAssociative :: IO ()
+testPowAssociative =
+  quickCheck (powAssociative :: Int -> Int -> Int -> Bool)
+
+--power commutative
+powCommutative :: (Eq a, Integral a) => a -> a -> Bool
+powCommutative x y =
+  x ^ y == y ^ x
+
+testPowCommutative :: IO ()
+testPowCommutative =
+  quickCheck (powCommutative :: Int -> Int -> Bool)
 
 --plus associativity
 plusAssociative :: (Eq a, Num a) => a -> a -> a -> Bool
