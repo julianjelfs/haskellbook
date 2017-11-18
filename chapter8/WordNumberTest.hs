@@ -13,13 +13,17 @@ genPair = do
   y <- genPos
   return (x, y)
 
-quotRemProp :: (Integral a, Eq a) => (a, a) -> Bool
-quotRemProp (x, y) =
-  (quot x y) * y + (rem x y) == x
+mathProp :: (Integral a, Eq a) => (a -> a -> a) -> (a -> a -> a) -> (a, a) -> Bool
+mathProp f g (x, y) =
+  (f x y) * y + (g x y) == x
 
 testQuotRem :: IO ()
 testQuotRem = do
-  quickCheck $ forAll genPair $ quotRemProp
+  quickCheck $ forAll genPair $ (mathProp quot rem)
+
+testDivMod :: IO ()
+testDivMod = do
+  quickCheck $ forAll genPair $ (mathProp div mod)
 
 --plus associativity
 plusAssociative :: (Eq a, Num a) => a -> a -> a -> Bool
