@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3eb6f055-12e5-4a08-ba9b-b7b99c974532" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/chapter15/Monoidal.hs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chapter8/WordNumberTest.hs" afterPath="$PROJECT_DIR$/chapter8/WordNumberTest.hs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,21 +67,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tests.hs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tests.hs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapter14/morse/tests/tests.hs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="820">
-              <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WriteTheFunctions.hs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chapter5/WriteTheFunctions.hs">
+      <file leaf-file-name="Monoidal.hs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chapter15/Monoidal.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="161">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -155,6 +156,7 @@
         <option value="$PROJECT_DIR$/chapter14/morse/morse.cabal" />
         <option value="$PROJECT_DIR$/chapter14/morse/src/Main.hs" />
         <option value="$PROJECT_DIR$/chapter14/morse/tests/tests.hs" />
+        <option value="$PROJECT_DIR$/chapter15/Monoidal.hs" />
       </list>
     </option>
   </component>
@@ -213,6 +215,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,47 +224,10 @@
               <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
               <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter8" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter9" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter14" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter14" type="462c0819:PsiDirectoryNode" />
-              <item name="morse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter14" type="462c0819:PsiDirectoryNode" />
-              <item name="morse" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter14" type="462c0819:PsiDirectoryNode" />
-              <item name="morse" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -392,15 +359,15 @@
       <workItem from="1509790252112" duration="2950000" />
       <workItem from="1509797592714" duration="3830000" />
       <workItem from="1509916822702" duration="1845000" />
+      <workItem from="1511468448297" duration="137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84083000" />
+    <option name="totallyTimeSpent" value="84220000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118608326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -455,13 +422,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/chapter7/Compose.hs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chapter7/Anon.hs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -811,7 +771,15 @@
     <entry file="file://$PROJECT_DIR$/chapter14/morse/tests/tests.hs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="820">
-          <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter15/Monoidal.hs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
