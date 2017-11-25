@@ -86,7 +86,6 @@ instance (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) =>
          Arbitrary (Four a b c d) where
   arbitrary = fourGen
 
-
 newtype BoolConj =
   BoolConj Bool
   deriving (Eq, Show)
@@ -102,6 +101,20 @@ boolConjGen = do
 instance Arbitrary BoolConj where
   arbitrary = boolConjGen
 
+newtype BoolDisj =
+  BoolDisj Bool
+  deriving (Eq, Show)
+
+instance Semigroup BoolDisj where
+  (BoolDisj a) <> (BoolDisj b) = BoolDisj (a || b)
+
+boolDisjGen :: Gen BoolDisj
+boolDisjGen = do
+  a <- arbitrary
+  return (BoolDisj a)
+
+instance Arbitrary BoolDisj where
+  arbitrary = boolDisjGen
 
 shortestGen :: Arbitrary a => Gen (Shortest a)
 shortestGen = do
@@ -119,6 +132,27 @@ biggestGen = do
 instance Arbitrary a => Arbitrary (Biggest a) where
   arbitrary = biggestGen
 
+data Or a b
+  = Fst a
+  | Snd b
+  deriving (Eq, Show)
+
+orGen :: (Arbitrary a, Arbitrary b) => Gen (Or a b)
+orGen = do
+  a <- arbitrary
+  b <- arbitrary
+  oneof [return $ Fst a, return $ Snd b]
+
+instance (Arbitrary a, Arbitrary b) =>  Arbitrary (Or a b) where
+  arbitrary = orGen
+
+instance Semigroup (Or a b) where
+  (Snd a) <> (Snd b) = Snd a
+  (Fst a) <> (Snd b) = Snd b
+  (Snd a) <> (Fst b) = Snd a
+  (Fst a) <> (Fst b) = Fst b
+
+
 semigroupAssociativity :: (Eq s, Semigroup s) => s -> s -> s -> Bool
 semigroupAssociativity x y z = x <> (y <> z) == (x <> y) <> z
 
@@ -134,6 +168,10 @@ type F = Four String String String String
 
 type Bc = BoolConj
 
+type Bd = BoolDisj
+
+type O = Or Int Int
+
 type ShortestAssoc = S -> S -> S -> Bool
 
 type BiggestAssoc = B -> B -> B -> Bool
@@ -146,9 +184,9 @@ type FourAssoc = F -> F -> F -> Bool
 
 type BoolConjAssoc = Bc -> Bc -> Bc -> Bool
 
-testShortestAssoc :: IO ()
-testShortestAssoc = do
-  quickCheck (semigroupAssociativity :: ShortestAssoc)
+type BoolDisjAssoc = Bd -> Bd -> Bd -> Bool
+
+type OrAssoc = O -> O -> O -> Bool
 
 testAssoc :: IO ()
 testAssoc = do
@@ -158,3 +196,5 @@ testAssoc = do
   quickCheck (semigroupAssociativity :: ThreeAssoc)
   quickCheck (semigroupAssociativity :: FourAssoc)
   quickCheck (semigroupAssociativity :: BoolConjAssoc)
+  quickCheck (semigroupAssociativity :: BoolDisjAssoc)
+  quickCheck (semigroupAssociativity :: OrAssoc)
