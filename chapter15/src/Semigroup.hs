@@ -143,7 +143,7 @@ orGen = do
   b <- arbitrary
   oneof [return $ Fst a, return $ Snd b]
 
-instance (Arbitrary a, Arbitrary b) =>  Arbitrary (Or a b) where
+instance (Arbitrary a, Arbitrary b) => Arbitrary (Or a b) where
   arbitrary = orGen
 
 instance Semigroup (Or a b) where
@@ -152,6 +152,30 @@ instance Semigroup (Or a b) where
   (Snd a) <> (Fst b) = Snd a
   (Fst a) <> (Fst b) = Fst b
 
+newtype Combine a b = Combine
+  { unCombine :: (a -> b)
+  }
+
+instance (Semigroup b) => Semigroup (Combine a b) where
+  (Combine {unCombine = f}) <> (Combine {unCombine = g}) =
+    Combine $ \n -> (f n) <> (g n)
+
+newtype Comp a = Comp
+  { unComp :: (a -> a)
+  }
+
+instance Semigroup (Comp a) where
+  (Comp {unComp = f}) <> (Comp {unComp = g}) = Comp $ g . f
+
+data Validation a b
+  = Faylure a
+  | Succezz b
+  deriving (Eq, Show)
+
+instance Semigroup a => Semigroup (Validation a b) where
+  (Faylure b1) <> (Faylure b2) = Faylure (b1 <> b2)
+  (Succezz b) <> _ = Succezz b
+  _ <> (Succezz b) = Succezz b
 
 semigroupAssociativity :: (Eq s, Semigroup s) => s -> s -> s -> Bool
 semigroupAssociativity x y z = x <> (y <> z) == (x <> y) <> z
