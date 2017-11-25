@@ -1,8 +1,8 @@
 module Lib
-    ( someFunc
-    ) where
+  ( someFunc
+  ) where
 
-import Data.Monoid
+import           Data.Monoid
 
 data Optional a
   = Nada
@@ -12,8 +12,8 @@ data Optional a
 instance Monoid a => Monoid (Optional a) where
   mempty = Nada
   mappend (Only x) (Only y) = Only (x <> y)
-  mappend (Only x) Nada = Only x
-  mappend Nada (Only y) = Only y
+  mappend (Only x) Nada     = Only x
+  mappend Nada (Only y)     = Only y
 
 monoidLeftIdentity :: (Eq m, Monoid m) => m -> Bool
 monoidLeftIdentity a = (mempty <> a) == a
@@ -22,18 +22,17 @@ monoidRightIdentity :: (Eq m, Monoid m) => m -> Bool
 monoidRightIdentity a = (a <> mempty) == a
 
 monoidAssociativity :: (Eq m, Monoid m) => m -> m -> m -> Bool
-monoidAssociativity x y z =
-  x <> (y <> z) == (x <> y) <> z
+monoidAssociativity x y z = x <> (y <> z) == (x <> y) <> z
 
-newtype First' a =
-  First' { getFirst' :: Optional a }
-  deriving (Eq, Show)
+newtype First' a = First'
+  { getFirst' :: Optional a
+  } deriving (Eq, Show)
 
 instance Monoid (First' a) where
   mempty = First' Nada
   mappend (First' (Only x)) _ = First' (Only x)
   mappend _ (First' (Only x)) = First' (Only x)
-  mappend _ _ = First' Nada
+  mappend _ _                 = First' Nada
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
