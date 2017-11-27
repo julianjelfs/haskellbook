@@ -1,7 +1,7 @@
 module Semigroup where
 
 import           Data.Semigroup
-import           Test.QuickCheck
+import           Test.QuickCheck hiding (Failure, Success)
 
 newtype Biggest a =
   Biggest a
@@ -168,14 +168,43 @@ instance Semigroup (Comp a) where
   (Comp {unComp = f}) <> (Comp {unComp = g}) = Comp $ g . f
 
 data Validation a b
-  = Faylure a
-  | Succezz b
+  = Failure a
+  | Success b
   deriving (Eq, Show)
 
-instance Semigroup a => Semigroup (Validation a b) where
-  (Faylure b1) <> (Faylure b2) = Faylure (b1 <> b2)
-  (Succezz b) <> _ = Succezz b
-  _ <> (Succezz b) = Succezz b
+instance Semigroup (Validation a b) where
+  Failure a <> Failure b = Failure a
+  Success _ <> Failure b = Failure b
+  Failure a <> Success _ = Failure a
+  Success a <> Success _ = Success a
+
+newtype AccumulateRight a b =
+  AccumulateRight (Validation a b)
+  deriving (Eq, Show)
+
+instance Semigroup b => Semigroup (AccumulateRight a b) where
+  AccumulateRight (Failure x) <> AccumulateRight (Success _) =
+    AccumulateRight (Failure x)
+  AccumulateRight (Failure _) <> AccumulateRight (Failure x) =
+    AccumulateRight (Failure x)
+  AccumulateRight (Success _) <> AccumulateRight (Failure x) =
+    AccumulateRight (Failure x)
+  AccumulateRight (Success _) <> AccumulateRight (Success x) =
+    AccumulateRight (Success x)
+
+newtype AccumulateBoth a b =
+  AccumulateBoth (Validation a b)
+  deriving (Eq, Show)
+
+instance (Semigroup a, Semigroup b) => Semigroup (AccumulateBoth a b) where
+  AccumulateBoth (Failure x) <> AccumulateBoth (Failure x') =
+    AccumulateBoth (Failure (x <> x'))
+  AccumulateBoth (Success x) <> AccumulateBoth (Success x') =
+    AccumulateBoth (Success (x <> x'))
+  AccumulateBoth (Success _) <> AccumulateBoth (Failure x) =
+    AccumulateBoth (Failure x)
+  AccumulateBoth (Failure x) <> AccumulateBoth (Success _) =
+    AccumulateBoth (Failure x)
 
 semigroupAssociativity :: (Eq s, Semigroup s) => s -> s -> s -> Bool
 semigroupAssociativity x y z = x <> (y <> z) == (x <> y) <> z
