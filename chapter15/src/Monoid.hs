@@ -83,6 +83,50 @@ type T = Two String String
 
 type TwoAssoc = T -> T -> T -> Bool
 
+newtype BoolConj =
+  BoolConj Bool
+  deriving (Eq, Show)
+
+instance Semigroup BoolConj where
+  (BoolConj a) <> (BoolConj b) = BoolConj (a && b)
+
+instance Monoid BoolConj where
+  mempty = BoolConj True
+  mappend = (<>)
+
+boolConjGen :: Gen BoolConj
+boolConjGen = do
+  a <- arbitrary
+  return (BoolConj a)
+
+instance Arbitrary BoolConj where
+  arbitrary = boolConjGen
+
+type Bc = BoolConj
+type BoolConjAssoc = Bc -> Bc -> Bc -> Bool
+
+newtype BoolDisj =
+  BoolDisj Bool
+  deriving (Eq, Show)
+
+instance Semigroup BoolDisj where
+  (BoolDisj a) <> (BoolDisj b) = BoolDisj (a || b)
+
+instance Monoid BoolDisj where
+  mempty = BoolDisj False
+  mappend = (<>)
+
+boolDisjGen :: Gen BoolDisj
+boolDisjGen = do
+  a <- arbitrary
+  return (BoolDisj a)
+
+instance Arbitrary BoolDisj where
+  arbitrary = boolDisjGen
+
+type Bd = BoolDisj
+type BoolDisjAssoc = Bd -> Bd -> Bd -> Bool
+
 tests :: IO ()
 tests = do
   quickCheck (semiAssociativity :: IdentityAssoc)
@@ -91,3 +135,9 @@ tests = do
   quickCheck (semiAssociativity :: TwoAssoc)
   quickCheck (monoidLeftIdentity :: T -> Bool)
   quickCheck (monoidRightIdentity :: T -> Bool)
+  quickCheck (semiAssociativity :: BoolConjAssoc)
+  quickCheck (monoidLeftIdentity :: Bc -> Bool)
+  quickCheck (monoidRightIdentity :: Bc -> Bool)
+  quickCheck (semiAssociativity :: BoolDisjAssoc)
+  quickCheck (monoidLeftIdentity :: Bd -> Bool)
+  quickCheck (monoidRightIdentity :: Bd -> Bool)
