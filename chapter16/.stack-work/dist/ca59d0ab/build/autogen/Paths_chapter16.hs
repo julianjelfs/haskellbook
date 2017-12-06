@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\bin"
-libdir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\lib\\x86_64-windows-ghc-8.0.2\\chapter16-0.1.0.0-AiUNjm5dvKmD9ctHeNm4pC"
+libdir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\lib\\x86_64-windows-ghc-8.0.2\\chapter16-0.1.0.0-EgbhaJXXkMX4yuxDRD3S75"
 dynlibdir  = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\lib\\x86_64-windows-ghc-8.0.2"
 datadir    = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\share\\x86_64-windows-ghc-8.0.2\\chapter16-0.1.0.0"
 libexecdir = "C:\\Users\\julianj\\projects\\haskellbook\\chapter16\\.stack-work\\install\\3573363d\\libexec"
