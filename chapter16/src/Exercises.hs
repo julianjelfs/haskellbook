@@ -38,10 +38,22 @@ testIdentity = do
 ------------------------------------------------------
 --  Pair
 ------------------------------------------------------
---data Pair a = Pair a a deriving (Eq, Show)
+data Pair a = Pair a a deriving (Eq, Show)
 
---instance Functor Pair where
---  fmap f (Pair x y) = Pair x y
+instance Functor Pair where
+  fmap f (Pair x y) = Pair (f x) (f y)
+
+pairGen :: (Arbitrary a) => Gen (Pair a)
+pairGen = do
+  x <- arbitrary
+  y <- arbitrary
+  return $ Pair x y
+
+instance (Arbitrary a) => Arbitrary (Pair a) where
+  arbitrary = pairGen
+
+testPair = do
+  quickCheck (functorCompose :: Pair String -> StrToStr -> StrToStr -> Bool)
 
 ------------------------------------------------------
 --  Two
@@ -63,3 +75,89 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Two a b) where
 testTwo = do
   quickCheck (functorCompose :: Two String String -> StrToStr -> StrToStr -> Bool)
   quickCheck (functorCompose :: Two Int Int -> IntToInt -> IntToInt -> Bool)
+
+------------------------------------------------------
+--  Three
+------------------------------------------------------
+data Three a b c = Three a b c deriving (Eq, Show)
+
+instance Functor (Three a b) where
+  fmap f (Three a b c) = Three a b (f c)
+
+threeGen :: (Arbitrary a, Arbitrary b, Arbitrary c) => Gen (Three a b c)
+threeGen = do
+  a <- arbitrary
+  b <- arbitrary
+  c <- arbitrary
+  return $ Three a b c
+
+instance (Arbitrary a, Arbitrary b, Arbitrary c) => Arbitrary (Three a b c) where
+  arbitrary = threeGen
+
+testThree = do
+  quickCheck (functorCompose :: Three String String String -> StrToStr -> StrToStr -> Bool)
+
+------------------------------------------------------
+--  Three'
+------------------------------------------------------
+data Three' a b = Three' a b b deriving (Eq, Show)
+
+instance Functor (Three' a) where
+  fmap f (Three' x y z) = Three' x (f y) (f z)
+
+threeGen' :: (Arbitrary a, Arbitrary b) => Gen (Three' a b)
+threeGen' = do
+  a <- arbitrary
+  b <- arbitrary
+  c <- arbitrary
+  return $ Three' a b c
+
+instance (Arbitrary a, Arbitrary b) => Arbitrary (Three' a b) where
+  arbitrary = threeGen'
+
+testThree' = do
+  quickCheck (functorCompose :: Three' String String -> StrToStr -> StrToStr -> Bool)
+
+------------------------------------------------------
+--  Four
+------------------------------------------------------
+data Four a b c d = Four a b c d deriving (Eq, Show)
+
+instance Functor (Four a b c) where
+  fmap f (Four a b c d) = Four a b c (f d)
+
+fourGen :: (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Gen (Four a b c d)
+fourGen = do
+  a <- arbitrary
+  b <- arbitrary
+  c <- arbitrary
+  d <- arbitrary
+  return $ Four a b c d
+
+instance (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Arbitrary (Four a b c d) where
+  arbitrary = fourGen
+
+testFour = do
+  quickCheck (functorCompose :: Four String String String String -> StrToStr -> StrToStr -> Bool)
+
+------------------------------------------------------
+--  Four'
+------------------------------------------------------
+data Four' a b = Four' a a a b deriving (Eq, Show)
+
+instance Functor (Four' a) where
+  fmap f (Four' w x y z) = Four' w x y (f z)
+
+fourGen' :: (Arbitrary a, Arbitrary b) => Gen (Four' a b)
+fourGen' = do
+  a <- arbitrary
+  b <- arbitrary
+  c <- arbitrary
+  d <- arbitrary
+  return $ Four' a b c d
+
+instance (Arbitrary a, Arbitrary b) => Arbitrary (Four' a b) where
+  arbitrary = fourGen'
+
+testFour' = do
+  quickCheck (functorCompose :: Four' String String -> StrToStr -> StrToStr -> Bool)
