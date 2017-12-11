@@ -3,18 +3,15 @@ module Exercises where
 import Test.QuickCheck
 import Test.QuickCheck.Function
 
-functorCompose :: (Eq (f c), Functor f) =>
-                    f a
-                    -> Fun a b
-                    -> Fun b c
-                    -> Bool
-functorCompose x (Fun _ f) (Fun _ g) =
-  (fmap (g . f) x) == (fmap g . fmap f $ x)
+functorCompose :: (Eq (f c), Functor f) => f a -> Fun a b -> Fun b c -> Bool
+functorCompose x (Fun _ f) (Fun _ g) = (fmap (g . f) x) == (fmap g . fmap f $ x)
 
 ------------------------------------------------------
 --  Identity
 ------------------------------------------------------
-newtype Identity a = Identity a deriving (Eq, Show)
+newtype Identity a =
+  Identity a
+  deriving (Eq, Show)
 
 instance Functor Identity where
   fmap f (Identity x) = Identity (f x)
@@ -28,17 +25,20 @@ instance (Arbitrary a) => Arbitrary (Identity a) where
   arbitrary = idGen
 
 type StrToStr = Fun String String
+
 type IntToInt = Fun Int Int
 
 testIdentity = do
   quickCheck (functorCompose :: Identity String -> StrToStr -> StrToStr -> Bool)
   quickCheck (functorCompose :: Identity Int -> IntToInt -> IntToInt -> Bool)
 
-
 ------------------------------------------------------
 --  Pair
 ------------------------------------------------------
-data Pair a = Pair a a deriving (Eq, Show)
+data Pair a =
+  Pair a
+       a
+  deriving (Eq, Show)
 
 instance Functor Pair where
   fmap f (Pair x y) = Pair (f x) (f y)
@@ -58,7 +58,10 @@ testPair = do
 ------------------------------------------------------
 --  Two
 ------------------------------------------------------
-data Two a b = Two a b deriving (Eq, Show)
+data Two a b =
+  Two a
+      b
+  deriving (Eq, Show)
 
 instance Functor (Two a) where
   fmap f (Two a b) = Two a (f b)
@@ -73,13 +76,18 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Two a b) where
   arbitrary = twoGen
 
 testTwo = do
-  quickCheck (functorCompose :: Two String String -> StrToStr -> StrToStr -> Bool)
+  quickCheck
+    (functorCompose :: Two String String -> StrToStr -> StrToStr -> Bool)
   quickCheck (functorCompose :: Two Int Int -> IntToInt -> IntToInt -> Bool)
 
 ------------------------------------------------------
 --  Three
 ------------------------------------------------------
-data Three a b c = Three a b c deriving (Eq, Show)
+data Three a b c =
+  Three a
+        b
+        c
+  deriving (Eq, Show)
 
 instance Functor (Three a b) where
   fmap f (Three a b c) = Three a b (f c)
@@ -91,16 +99,22 @@ threeGen = do
   c <- arbitrary
   return $ Three a b c
 
-instance (Arbitrary a, Arbitrary b, Arbitrary c) => Arbitrary (Three a b c) where
+instance (Arbitrary a, Arbitrary b, Arbitrary c) =>
+         Arbitrary (Three a b c) where
   arbitrary = threeGen
 
 testThree = do
-  quickCheck (functorCompose :: Three String String String -> StrToStr -> StrToStr -> Bool)
+  quickCheck
+    (functorCompose :: Three String String String -> StrToStr -> StrToStr -> Bool)
 
 ------------------------------------------------------
 --  Three'
 ------------------------------------------------------
-data Three' a b = Three' a b b deriving (Eq, Show)
+data Three' a b =
+  Three' a
+         b
+         b
+  deriving (Eq, Show)
 
 instance Functor (Three' a) where
   fmap f (Three' x y z) = Three' x (f y) (f z)
@@ -116,17 +130,24 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Three' a b) where
   arbitrary = threeGen'
 
 testThree' = do
-  quickCheck (functorCompose :: Three' String String -> StrToStr -> StrToStr -> Bool)
+  quickCheck
+    (functorCompose :: Three' String String -> StrToStr -> StrToStr -> Bool)
 
 ------------------------------------------------------
 --  Four
 ------------------------------------------------------
-data Four a b c d = Four a b c d deriving (Eq, Show)
+data Four a b c d =
+  Four a
+       b
+       c
+       d
+  deriving (Eq, Show)
 
 instance Functor (Four a b c) where
   fmap f (Four a b c d) = Four a b c (f d)
 
-fourGen :: (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Gen (Four a b c d)
+fourGen ::
+     (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Gen (Four a b c d)
 fourGen = do
   a <- arbitrary
   b <- arbitrary
@@ -134,16 +155,23 @@ fourGen = do
   d <- arbitrary
   return $ Four a b c d
 
-instance (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Arbitrary (Four a b c d) where
+instance (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) =>
+         Arbitrary (Four a b c d) where
   arbitrary = fourGen
 
 testFour = do
-  quickCheck (functorCompose :: Four String String String String -> StrToStr -> StrToStr -> Bool)
+  quickCheck
+    (functorCompose :: Four String String String String -> StrToStr -> StrToStr -> Bool)
 
 ------------------------------------------------------
 --  Four'
 ------------------------------------------------------
-data Four' a b = Four' a a a b deriving (Eq, Show)
+data Four' a b =
+  Four' a
+        a
+        a
+        b
+  deriving (Eq, Show)
 
 instance Functor (Four' a) where
   fmap f (Four' w x y z) = Four' w x y (f z)
@@ -160,4 +188,5 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Four' a b) where
   arbitrary = fourGen'
 
 testFour' = do
-  quickCheck (functorCompose :: Four' String String -> StrToStr -> StrToStr -> Bool)
+  quickCheck
+    (functorCompose :: Four' String String -> StrToStr -> StrToStr -> Bool)
