@@ -190,3 +190,62 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Four' a b) where
 testFour' = do
   quickCheck
     (functorCompose :: Four' String String -> StrToStr -> StrToStr -> Bool)
+
+data Wrap f a =
+  Wrap (f a)
+  deriving (Eq, Show)
+
+instance Functor f => Functor (Wrap f) where
+  fmap f (Wrap fa) = Wrap (fmap f fa)
+
+getInt :: IO Int
+getInt = fmap read getLine
+
+data BoolAndSomethingElse a
+  = False' a
+  | True' a
+  deriving (Show)
+
+instance Functor BoolAndSomethingElse where
+  fmap f (False' a) = False' (f a)
+  fmap f (True' a) = True' (f a)
+
+data BoolAndMaybeSomethingElse a
+  = Falsish
+  | Truish a
+  deriving (Show)
+
+instance Functor BoolAndMaybeSomethingElse where
+  fmap f (Truish a) = Truish (f a)
+  fmap _ Falsish = Falsish
+
+--don't understand this one at all
+newtype Mu f = InF
+  { outF :: f (Mu f)
+  }
+
+data Sum b a
+  = First a
+  | Second b
+  deriving (Show)
+
+instance Functor (Sum e) where
+  fmap f (First a) = First (f a)
+  fmap f (Second b) = Second b
+
+data Company a c b =
+  DeepBlue a c
+  | Something b
+
+instance Functor (Company e e') where
+  fmap f (Something b) = Something (f b)
+  fmap f (DeepBlue a c) = DeepBlue a c
+
+data More b a =
+  L a b a
+  | R b a b
+  deriving (Eq, Show)
+
+instance Functor (More x) where
+  fmap f (L a b a') = L (f a) b (f a')
+  fmap f (R b a b') = R b (f a) b'

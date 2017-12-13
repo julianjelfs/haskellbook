@@ -21,6 +21,13 @@
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 1)
 
+/* package transformers-0.5.2.0 */
+#define VERSION_transformers "0.5.2.0"
+#define MIN_VERSION_transformers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 2)
+
 /* tool gcc-5.2.0 */
 #define TOOL_VERSION_gcc "5.2.0"
 #define MIN_TOOL_VERSION_gcc(major1,major2,minor) (\
@@ -70,7 +77,7 @@
   (major1) == 2 && (major2) <  25 || \
   (major1) == 2 && (major2) == 25 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "chapter16-0.1.0.0-EgbhaJXXkMX4yuxDRD3S75"
+#define CURRENT_COMPONENT_ID "chapter16-0.1.0.0-8cW7gX4CN0c6XCIADFSJOp"
 
-#define CURRENT_PACKAGE_KEY "chapter16-0.1.0.0-EgbhaJXXkMX4yuxDRD3S75"
+#define CURRENT_PACKAGE_KEY "chapter16-0.1.0.0-8cW7gX4CN0c6XCIADFSJOp"
 
