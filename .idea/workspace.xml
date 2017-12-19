@@ -69,8 +69,8 @@
       <file leaf-file-name="Exercises.hs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chapter16/src/Exercises.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="245" column="10" lean-forward="false" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
+            <state relative-caret-position="636">
+              <caret line="333" column="9" lean-forward="false" selection-start-line="333" selection-start-column="9" selection-end-line="333" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -227,6 +227,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,52 +235,10 @@
               <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
               <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter15" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter16" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter16" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="haskellbook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="haskellbook" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,26 +377,27 @@
       <workItem from="1512718941283" duration="10000" />
       <workItem from="1513021862212" duration="3620000" />
       <workItem from="1513192004607" duration="3283000" />
+      <workItem from="1513452214586" duration="4552000" />
+      <workItem from="1513544630214" duration="650000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104502000" />
+    <option name="totallyTimeSpent" value="109704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118608326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118608326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Bucklescript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -836,8 +796,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chapter16/src/Exercises.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="245" column="10" lean-forward="false" selection-start-line="245" selection-start-column="10" selection-end-line="245" selection-end-column="10" />
+        <state relative-caret-position="636">
+          <caret line="333" column="9" lean-forward="false" selection-start-line="333" selection-start-column="9" selection-end-line="333" selection-end-column="9" />
           <folding />
         </state>
       </provider>
