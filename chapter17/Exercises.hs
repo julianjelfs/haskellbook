@@ -1,6 +1,7 @@
 module Exercises where
 
 import Data.List (elemIndex)
+import Control.Applicative
 
 added :: Maybe Integer
 added = (+3) <$> (lookup 3 $ zip [1,2,3] [4,5,6])
@@ -50,3 +51,24 @@ instance Monoid a => Applicative (Constant a) where
   pure b = Constant mempty
   (Constant f) <*> (Constant b) = Constant b
 
+data Two a b = Two a b deriving Show
+
+instance Functor (Two a) where
+  fmap f (Two m a) = Two m (f a)
+
+instance Monoid a => Applicative (Two a) where
+  pure = Two mempty
+  (Two m f) <*> (Two m' x) = Two (mappend m m') (f x)
+
+data Three a b c = Three a b c deriving Show
+
+instance Functor (Three a b) where
+  fmap f (Three m n a) = Three m n (f a)
+
+instance (Monoid a, Monoid b) => Applicative (Three a b) where
+  pure = Three mempty mempty
+  (Three m n f) <*> (Three m' n' a) = Three (mappend m m') (mappend n n') (f a)
+
+combos :: [a] -> [b] -> [c] -> [(a,b,c)]
+combos as bs cs =
+  (,,) <$> as <*> bs <*> cs
