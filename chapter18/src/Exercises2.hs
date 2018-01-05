@@ -143,3 +143,26 @@ testList = do
   quickBatch $ applicative trigger
   quickBatch $ monad trigger
 
+--j :: [[]] -> []
+--j :: Maybe (Maybe a) -> Maybe a
+j :: Monad m => m (m a) -> m a
+j m = m >>= id
+
+l1 :: Monad m => (a -> b) -> m a -> m b
+l1 f x = f <$> x
+
+l2 :: Monad m => (a -> b -> c) -> m a -> m b -> m c
+l2 f x y = f <$> x <*> y
+
+a :: Monad m => m a -> m (a -> b) -> m b
+a x y = y <*> x
+
+--couldn't have arrived at this one on my own I don't think
+meh :: Monad m => [a] -> (a -> m b) -> m [b]
+meh [] _ = return []
+meh (x:xs) f = do
+  x' <- (f x)
+  fmap ((:) x') (meh xs f)
+
+flipType :: Monad m => [m a] -> m [a]
+flipType xs = (flip meh) id xs
