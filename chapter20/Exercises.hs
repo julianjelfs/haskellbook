@@ -36,3 +36,39 @@ fold f = foldr mappend mempty f
 
 myFoldMap :: (Foldable t, Monoid m) => (a -> m) -> t a -> m
 myFoldMap g f = foldr (\i m -> g i `mappend` m) mempty f
+
+data Constant a b = Constant a deriving Show
+
+instance Foldable (Constant a) where
+  foldMap f (Constant x) = mempty
+
+data Two a b =
+  Two a b
+  deriving Show
+
+instance Foldable (Two a) where
+  foldMap f (Two a b) = f b
+
+data Three a b c =
+  Three a b c
+  deriving Show
+
+instance Foldable (Three a b) where
+  foldMap f (Three a b c) = f c
+
+data Three' a b =
+  Three' a b b
+  deriving Show
+
+instance Foldable (Three' a) where
+  foldMap f (Three' a b1 b2) = mappend (f b1) (f b2)
+
+data Four' a b =
+  Four' a b b b
+  deriving Show
+
+instance Foldable (Four' a) where
+  foldMap f (Four' a b1 b2 b3) = (f b1) `mappend` (f b2) `mappend` (f b3)
+
+filterF :: (Applicative f, Foldable t, Monoid (f a)) => (a -> Bool) -> t a -> f a
+filterF pred f = foldMap (\x -> if pred x then pure x else mempty) f
