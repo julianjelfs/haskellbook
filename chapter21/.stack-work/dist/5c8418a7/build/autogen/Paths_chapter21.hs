@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\bin"
-libdir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\lib\\x86_64-windows-ghc-8.2.2\\chapter21-0.1.0.0-BohZ4R54GlK49xNrQ4U3It"
+libdir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\lib\\x86_64-windows-ghc-8.2.2\\chapter21-0.1.0.0-IfMgm8igbbA5tIeHc0oY45"
 dynlibdir  = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\lib\\x86_64-windows-ghc-8.2.2"
 datadir    = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\share\\x86_64-windows-ghc-8.2.2\\chapter21-0.1.0.0"
 libexecdir = "C:\\Users\\julianj\\projects\\haskellbook\\chapter21\\.stack-work\\install\\ccbce92a\\libexec\\x86_64-windows-ghc-8.2.2\\chapter21-0.1.0.0"

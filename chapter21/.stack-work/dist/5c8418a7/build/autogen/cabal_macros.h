@@ -44,6 +44,28 @@
   (major1) == 0 && (major2) == 10 && (minor) <= 8)
 #endif /* MIN_VERSION_bytestring */
 
+/* package QuickCheck-2.10.1 */
+#ifndef VERSION_QuickCheck
+#define VERSION_QuickCheck "2.10.1"
+#endif /* VERSION_QuickCheck */
+#ifndef MIN_VERSION_QuickCheck
+#define MIN_VERSION_QuickCheck(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  10 || \
+  (major1) == 2 && (major2) == 10 && (minor) <= 1)
+#endif /* MIN_VERSION_QuickCheck */
+
+/* package checkers-0.4.9.5 */
+#ifndef VERSION_checkers
+#define VERSION_checkers "0.4.9.5"
+#endif /* VERSION_checkers */
+#ifndef MIN_VERSION_checkers
+#define MIN_VERSION_checkers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 9)
+#endif /* MIN_VERSION_checkers */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -133,10 +155,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter21-0.1.0.0-BohZ4R54GlK49xNrQ4U3It"
+#define CURRENT_PACKAGE_KEY "chapter21-0.1.0.0-IfMgm8igbbA5tIeHc0oY45"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter21-0.1.0.0-BohZ4R54GlK49xNrQ4U3It"
+#define CURRENT_COMPONENT_ID "chapter21-0.1.0.0-IfMgm8igbbA5tIeHc0oY45"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
