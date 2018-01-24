@@ -7,6 +7,9 @@ module Exercises where
 -- vs
 -- fmap Just [1,2,3]
 -- [Just 1, Just 2, Just 3]
+-- vs
+-- sequence $ fmap Just [1,2,3]
+-- Just [1,2,3]
 
 newtype Identity a = Identity a deriving (Eq, Show, Ord)
 
