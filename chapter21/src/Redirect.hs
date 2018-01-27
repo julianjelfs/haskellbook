@@ -1,6 +1,6 @@
 module Redirect where
 
-type Url = String
+newtype Url = Url String deriving Eq
 
 type RedirectRule = Url -> Url
 
@@ -32,4 +32,3 @@ redirect url rules = go [] url rules 0
             if u == url
               then (Right url)
               else go (url:prev) u rules (iterations + 1)
-
