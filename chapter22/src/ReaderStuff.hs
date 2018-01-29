@@ -1,3 +1,5 @@
+{-# LANGUAGE InstanceSigs #-}
+
 module ReaderStuff where
 
 import Control.Applicative
@@ -46,3 +48,25 @@ mtupleddo = do
 mtupled :: [Char] -> ([Char], [Char])
 mtupled =
   cap >>= (\a -> rev >>= (\b -> return (a, b)))
+
+newtype Reader r a =
+  Reader { runReader :: r -> a }
+
+myLiftA2 :: Applicative f => (a -> b -> c) -> f a -> f b -> f c
+myLiftA2 f a1 a2 = f <$> a1 <*> a2
+
+asks :: (r -> a) -> Reader r a
+asks f = Reader f
+
+instance Functor (Reader r) where
+  fmap f (Reader ra) = Reader $ f . ra
+
+instance Applicative (Reader r) where
+  pure :: a -> Reader r a
+  pure a = Reader $ (\r -> a)
+
+  (<*>) :: Reader r (a -> b)
+        -> Reader r a
+        -> Reader r b
+  (Reader rab) <*> (Reader ra) =
+    Reader $ \r -> rab r $ ra r
