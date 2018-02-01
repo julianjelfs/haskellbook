@@ -4,6 +4,7 @@ module ReaderStuff where
 
 import Control.Applicative
 import Data.Char
+import Control.Monad
 
 boop :: Num a => a -> a
 boop = (*2)
@@ -70,3 +71,11 @@ instance Applicative (Reader r) where
         -> Reader r b
   (Reader rab) <*> (Reader ra) =
     Reader $ \r -> rab r $ ra r
+
+instance Monad (Reader r) where
+  return = pure
+  (>>=) :: Reader r a
+        -> (a -> Reader r b)
+        -> Reader r b
+  (Reader ra) >>= arb =
+    join $ Reader $ \r -> arb (ra r)
