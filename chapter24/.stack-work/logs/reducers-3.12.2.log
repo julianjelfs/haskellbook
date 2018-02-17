@@ -1,107 +1,107 @@
 Configuring reducers-3.12.2...
 Preprocessing library for reducers-3.12.2..
 Building library for reducers-3.12.2..
-[ 1 of 14] Compiling Data.Semigroup.Instances ( src/Data/Semigroup/Instances.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Instances.o )
-[ 2 of 14] Compiling Data.Semigroup.Reducer ( src/Data/Semigroup/Reducer.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Reducer.o )
-[ 3 of 14] Compiling Data.Semigroup.MonadPlus ( src/Data/Semigroup/MonadPlus.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/MonadPlus.o )
-[ 4 of 14] Compiling Data.Semigroup.Monad ( src/Data/Semigroup/Monad.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Monad.o )
+[ 1 of 14] Compiling Data.Semigroup.Instances ( src\Data\Semigroup\Instances.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Instances.o )
+[ 2 of 14] Compiling Data.Semigroup.Reducer ( src\Data\Semigroup\Reducer.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Reducer.o )
+[ 3 of 14] Compiling Data.Semigroup.MonadPlus ( src\Data\Semigroup\MonadPlus.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\MonadPlus.o )
+[ 4 of 14] Compiling Data.Semigroup.Monad ( src\Data\Semigroup\Monad.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Monad.o )
 
-[;1msrc/Data/Semigroup/Monad.hs:52:15: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
-    • The constraint ‘Reducer (f ()) (Action f)’
+[;1msrc\Data\Semigroup\Monad.hs:52:15: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
+    * The constraint `Reducer (f ()) (Action f)'
         matches an instance declaration
       instance Monad f => Reducer (f a) (Action f)
-        -- Defined at src/Data/Semigroup/Monad.hs:45:10
+        -- Defined at src\Data\Semigroup\Monad.hs:45:10
       This makes type inference for inner bindings fragile;
         either use MonoLocalBinds, or simplify it using the instance
-    • In the type signature:
+    * In the type signature:
         snocAction :: Reducer (f ()) (Action f) =>
                       Action f -> f () -> Action f[0m[0m
 [;1m[34m   |[0m[0m
 [;1m[34m52 |[0m[0m snocAction :: [;1m[35mReducer (f ()) (Action f) => Action f -> f () -> Action f[0m[0m
 [;1m[34m   |[0m[0m[;1m[35m               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[0m[0m[ 5 of 14] Compiling Data.Semigroup.Apply ( src/Data/Semigroup/Apply.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Apply.o )
+[0m[0m[0m[ 5 of 14] Compiling Data.Semigroup.Apply ( src\Data\Semigroup\Apply.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Apply.o )
 
-[;1msrc/Data/Semigroup/Apply.hs:47:13: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
-    • The constraint ‘Reducer (f ()) (Trav f)’
+[;1msrc\Data\Semigroup\Apply.hs:47:13: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
+    * The constraint `Reducer (f ()) (Trav f)'
         matches an instance declaration
       instance Apply f => Reducer (f a) (Trav f)
-        -- Defined at src/Data/Semigroup/Apply.hs:40:10
+        -- Defined at src\Data\Semigroup\Apply.hs:40:10
       This makes type inference for inner bindings fragile;
         either use MonoLocalBinds, or simplify it using the instance
-    • In the type signature:
+    * In the type signature:
         snocTrav :: Reducer (f ()) (Trav f) => Trav f -> f () -> Trav f[0m[0m
 [;1m[34m   |[0m[0m
 [;1m[34m47 |[0m[0m snocTrav :: [;1m[35mReducer (f ()) (Trav f) => Trav f -> f () -> Trav f[0m[0m
 [;1m[34m   |[0m[0m[;1m[35m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[0m[0m[ 6 of 14] Compiling Data.Semigroup.Applicative ( src/Data/Semigroup/Applicative.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Applicative.o )
+[0m[0m[0m[ 6 of 14] Compiling Data.Semigroup.Applicative ( src\Data\Semigroup\Applicative.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Applicative.o )
 
-[;1msrc/Data/Semigroup/Applicative.hs:51:18: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
-    • The constraint ‘Reducer (f ()) (Traversal f)’
+[;1msrc\Data\Semigroup\Applicative.hs:51:18: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wsimplifiable-class-constraints[0m[0m[;1m][0m[0m[;1m
+    * The constraint `Reducer (f ()) (Traversal f)'
         matches an instance declaration
       instance Applicative f => Reducer (f a) (Traversal f)
-        -- Defined at src/Data/Semigroup/Applicative.hs:44:10
+        -- Defined at src\Data\Semigroup\Applicative.hs:44:10
       This makes type inference for inner bindings fragile;
         either use MonoLocalBinds, or simplify it using the instance
-    • In the type signature:
+    * In the type signature:
         snocTraversal :: Reducer (f ()) (Traversal f) =>
                          Traversal f -> f () -> Traversal f[0m[0m
 [;1m[34m   |[0m[0m
 [;1m[34m51 |[0m[0m snocTraversal :: [;1m[35mReducer (f ()) (Traversal f) => Traversal f -> f () -> Traversal f[0m[0m
 [;1m[34m   |[0m[0m[;1m[35m                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[0m[0m[ 7 of 14] Compiling Data.Semigroup.Alternative ( src/Data/Semigroup/Alternative.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Alternative.o )
-[ 8 of 14] Compiling Data.Semigroup.Alt ( src/Data/Semigroup/Alt.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Alt.o )
-[ 9 of 14] Compiling Data.Generator   ( src/Data/Generator.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Generator.o )
+[0m[0m[0m[ 7 of 14] Compiling Data.Semigroup.Alternative ( src\Data\Semigroup\Alternative.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Alternative.o )
+[ 8 of 14] Compiling Data.Semigroup.Alt ( src\Data\Semigroup\Alt.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Alt.o )
+[ 9 of 14] Compiling Data.Generator   ( src\Data\Generator.hs, .stack-work\dist\5c8418a7\build\Data\Generator.o )
 
-[;1msrc/Data/Generator.hs:198:1: [;1m[35mwarning:[0m[0m[;1m[0m[0m[;1m
-    Forall'd constraint ‘Generator (FingerTree v e)’
+[;1msrc\Data\Generator.hs:198:1: [;1m[35mwarning:[0m[0m[;1m[0m[0m[;1m
+    Forall'd constraint `Generator (FingerTree v e)'
     is not bound in RULE lhs
-      Orig bndrs: [v, e, m, $dGenerator_asRB, $dReducer_asRC,
-                   $dMonoid_asRD]
+      Orig bndrs: [v, e, m, $dGenerator_aorQ, $dReducer_aorR,
+                   $dMonoid_aorS]
       Orig lhs: let {
-                  $dMonoid_asRI :: Monoid m
+                  $dMonoid_aorX :: Monoid m
                   [LclId]
-                  $dMonoid_asRI = $dMonoid_asRD } in
+                  $dMonoid_aorX = $dMonoid_aorS } in
                 let {
-                  $dReducer_asRH :: Reducer (Elem (FingerTree v e)) m
+                  $dReducer_aorW :: Reducer (Elem (FingerTree v e)) m
                   [LclId]
-                  $dReducer_asRH
-                    = $dReducer_asRC
+                  $dReducer_aorW
+                    = $dReducer_aorR
                       `cast` ((Reducer
                                  (Sym (Data.Generator.D:R:ElemFingerTree[0] <v>_N <e>_N)) <m>_N)_R
                               :: Coercible (Reducer e m)
                                            (Reducer (Elem (FingerTree v e)) m)) } in
                 let {
-                  $dGenerator_asRG :: Generator (FingerTree v e)
+                  $dGenerator_aorV :: Generator (FingerTree v e)
                   [LclId]
-                  $dGenerator_asRG
+                  $dGenerator_aorV
                     = Data.Generator.$fGeneratorFingerTree @ v @ e } in
                 let {
-                  $dSemigroup_atkH :: Data.Semigroup.Semigroup m
+                  $dSemigroup_aoUW :: Data.Semigroup.Semigroup m
                   [LclId]
-                  $dSemigroup_atkH
-                    = Data.Semigroup.Reducer.$p1Reducer @ e @ m $dReducer_asRC } in
+                  $dSemigroup_aoUW
+                    = Data.Semigroup.Reducer.$p1Reducer @ e @ m $dReducer_aorR } in
                 reduce
                   @ (FingerTree v e)
                   @ m
-                  $dGenerator_asRG
-                  $dReducer_asRH
-                  $dMonoid_asRI
+                  $dGenerator_aorV
+                  $dReducer_aorW
+                  $dMonoid_aorX
       optimised lhs: reduce
                        @ (FingerTree v e)
                        @ m
-                       $dGenerator_asRG
-                       ($dReducer_asRC
+                       $dGenerator_aorV
+                       ($dReducer_aorR
                         `cast` ((Reducer
                                    (Sym (Data.Generator.D:R:ElemFingerTree[0] <v>_N <e>_N)) <m>_N)_R
                                 :: Coercible (Reducer e m) (Reducer (Elem (FingerTree v e)) m)))
-                       $dMonoid_asRD[0m[0m
+                       $dMonoid_aorS[0m[0m
 [;1m[34m    |[0m[0m
 [;1m[34m198 |[0m[0m [;1m[35m{-# SPECIALIZE reduce :: (Generator (FingerTree v e), Reducer e m, Monoid m) => FingerTree v e -> m #-}[0m[0m
 [;1m[34m    |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[0m[0m[10 of 14] Compiling Data.Semigroup.Generator ( src/Data/Semigroup/Generator.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Generator.o )
-[11 of 14] Compiling Data.Generator.Combinators ( src/Data/Generator/Combinators.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Generator/Combinators.o )
-[12 of 14] Compiling Data.Semigroup.Reducer.With ( src/Data/Semigroup/Reducer/With.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Reducer/With.o )
-[13 of 14] Compiling Data.Semigroup.Self ( src/Data/Semigroup/Self.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Self.o )
-[14 of 14] Compiling Data.Semigroup.Union ( src/Data/Semigroup/Union.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Data/Semigroup/Union.o )
-Installing library in /home/jelfs/.stack/snapshots/x86_64-linux/lts-10.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/reducers-3.12.2-CxfNSStvwtRH6wydr0QVXm
+[0m[0m[0m[10 of 14] Compiling Data.Semigroup.Generator ( src\Data\Semigroup\Generator.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Generator.o )
+[11 of 14] Compiling Data.Generator.Combinators ( src\Data\Generator\Combinators.hs, .stack-work\dist\5c8418a7\build\Data\Generator\Combinators.o )
+[12 of 14] Compiling Data.Semigroup.Reducer.With ( src\Data\Semigroup\Reducer\With.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Reducer\With.o )
+[13 of 14] Compiling Data.Semigroup.Self ( src\Data\Semigroup\Self.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Self.o )
+[14 of 14] Compiling Data.Semigroup.Union ( src\Data\Semigroup\Union.hs, .stack-work\dist\5c8418a7\build\Data\Semigroup\Union.o )
+Installing library in C:\sr\snapshots\8a26ed14\lib\x86_64-windows-ghc-8.2.2\reducers-3.12.2-CG56cmkVCs8FnQtkEYBrVK
 Registering library for reducers-3.12.2..
