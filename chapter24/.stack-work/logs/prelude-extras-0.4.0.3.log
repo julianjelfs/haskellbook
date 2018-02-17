@@ -1,0 +1,6 @@
+Configuring prelude-extras-0.4.0.3...
+Preprocessing library for prelude-extras-0.4.0.3..
+Building library for prelude-extras-0.4.0.3..
+[1 of 1] Compiling Prelude.Extras   ( src/Prelude/Extras.hs, .stack-work/dist/x86_64-linux/Cabal-2.0.1.0/build/Prelude/Extras.o )
+Installing library in /home/jelfs/.stack/snapshots/x86_64-linux/lts-10.5/8.2.2/lib/x86_64-linux-ghc-8.2.2/prelude-extras-0.4.0.3-2BTovQep0HPEQRrUv78ItR
+Registering library for prelude-extras-0.4.0.3..
