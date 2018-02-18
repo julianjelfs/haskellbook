@@ -24,8 +24,8 @@ bbop = (+) <$> boop <*> doop
 duwop :: Num a => a -> a
 duwop = liftA2 (+) boop doop
 
-cap :: [Char] -> [Char]
-cap xs = map toUpper xs
+cap :: String -> String
+cap = map toUpper
 
 rev :: [Char] -> [Char]
 rev xs = reverse xs
