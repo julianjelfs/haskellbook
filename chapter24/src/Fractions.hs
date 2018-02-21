@@ -15,3 +15,15 @@ parseFraction = do
   char '/'
   denominator <- decimal
   return (numerator % denominator)
+
+parseFractionOrDecimal :: Parser (Either Integer Rational)
+parseFractionOrDecimal =
+   (try (Right <$> parseFraction)) <|> (Left <$> decimal)
+
+justInt = do
+  i <- integer
+  _ <- eof
+  return i
+
+parseJustInt =
+  parseString justInt mempty

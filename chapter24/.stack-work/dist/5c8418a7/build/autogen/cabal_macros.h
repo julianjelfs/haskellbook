@@ -44,6 +44,61 @@
   (major1) == 0 && (major2) == 12 && (minor) <= 8)
 #endif /* MIN_VERSION_parsers */
 
+/* package hspec-2.4.4 */
+#ifndef VERSION_hspec
+#define VERSION_hspec "2.4.4"
+#endif /* VERSION_hspec */
+#ifndef MIN_VERSION_hspec
+#define MIN_VERSION_hspec(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  4 || \
+  (major1) == 2 && (major2) == 4 && (minor) <= 4)
+#endif /* MIN_VERSION_hspec */
+
+/* package bytestring-0.10.8.2 */
+#ifndef VERSION_bytestring
+#define VERSION_bytestring "0.10.8.2"
+#endif /* VERSION_bytestring */
+#ifndef MIN_VERSION_bytestring
+#define MIN_VERSION_bytestring(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  10 || \
+  (major1) == 0 && (major2) == 10 && (minor) <= 8)
+#endif /* MIN_VERSION_bytestring */
+
+/* package containers-0.5.10.2 */
+#ifndef VERSION_containers
+#define VERSION_containers "0.5.10.2"
+#endif /* VERSION_containers */
+#ifndef MIN_VERSION_containers
+#define MIN_VERSION_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 10)
+#endif /* MIN_VERSION_containers */
+
+/* package text-1.2.2.2 */
+#ifndef VERSION_text
+#define VERSION_text "1.2.2.2"
+#endif /* VERSION_text */
+#ifndef MIN_VERSION_text
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 2)
+#endif /* MIN_VERSION_text */
+
+/* package raw-strings-qq-1.1 */
+#ifndef VERSION_raw_strings_qq
+#define VERSION_raw_strings_qq "1.1"
+#endif /* VERSION_raw_strings_qq */
+#ifndef MIN_VERSION_raw_strings_qq
+#define MIN_VERSION_raw_strings_qq(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+#endif /* MIN_VERSION_raw_strings_qq */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -133,10 +188,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-Ky9lXs7tXNLs0q0Lo1yTR"
+#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-7gDviaCNRPhL4hONKFElVY"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-Ky9lXs7tXNLs0q0Lo1yTR"
+#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-7gDviaCNRPhL4hONKFElVY"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
