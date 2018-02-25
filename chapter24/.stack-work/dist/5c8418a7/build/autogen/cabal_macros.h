@@ -99,6 +99,17 @@
   (major1) == 1 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_raw_strings_qq */
 
+/* package aeson-1.2.4.0 */
+#ifndef VERSION_aeson
+#define VERSION_aeson "1.2.4.0"
+#endif /* VERSION_aeson */
+#ifndef MIN_VERSION_aeson
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 4)
+#endif /* MIN_VERSION_aeson */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -188,10 +199,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-7gDviaCNRPhL4hONKFElVY"
+#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-LfOVWMuLabl3TXngmFayu4"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-7gDviaCNRPhL4hONKFElVY"
+#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-LfOVWMuLabl3TXngmFayu4"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
