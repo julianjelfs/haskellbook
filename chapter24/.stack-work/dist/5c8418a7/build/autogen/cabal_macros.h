@@ -110,6 +110,17 @@
   (major1) == 1 && (major2) == 2 && (minor) <= 4)
 #endif /* MIN_VERSION_aeson */
 
+/* package parsec-3.1.13.0 */
+#ifndef VERSION_parsec
+#define VERSION_parsec "3.1.13.0"
+#endif /* VERSION_parsec */
+#ifndef MIN_VERSION_parsec
+#define MIN_VERSION_parsec(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  1 || \
+  (major1) == 3 && (major2) == 1 && (minor) <= 13)
+#endif /* MIN_VERSION_parsec */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -199,10 +210,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-LfOVWMuLabl3TXngmFayu4"
+#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-464WkTmqJiJ6twVt1BYa0P"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-LfOVWMuLabl3TXngmFayu4"
+#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-464WkTmqJiJ6twVt1BYa0P"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
