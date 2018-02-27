@@ -1,14 +1,13 @@
 module SemVerParser where
 
-import Text.Trifecta
-import Data.Maybe
 import Control.Applicative
+import Data.Maybe
+import Text.Trifecta
 
 --Write a parser that follows the spec at http://semver.org
 --2.0.0  2.0.0-rc.1+exp.s.234.whatevs
 -- release follows patch and is - followed by [numorstring]
 -- meta follows patch or release and is + followed by [numorstring]
-
 data NumberOrString
   = NOSS String
   | NOSI Integer
@@ -25,7 +24,11 @@ type Release = [NumberOrString]
 type Metadata = [NumberOrString]
 
 data SemVer =
-  SemVer Major Minor Patch Release Metadata
+  SemVer Major
+         Minor
+         Patch
+         Release
+         Metadata
   deriving (Show, Eq)
 
 instance Ord SemVer where
@@ -41,17 +44,14 @@ integerParser = do
   return $ read d
 
 numOrStringParser :: Parser NumberOrString
-numOrStringParser =
-  (NOSI <$> integerParser) <|> (NOSS <$> some alphaNum)
+numOrStringParser = (NOSI <$> integerParser) <|> (NOSS <$> some alphaNum)
 
 -- release follows patch and is - followed by [numorstring]
 releaseParser :: Parser Release
-releaseParser =
-  char '-' >> sepBy numOrStringParser (char '.')
+releaseParser = char '-' >> sepBy numOrStringParser (char '.')
 
 metaParser :: Parser Metadata
-metaParser =
-  char '+' >> sepBy numOrStringParser (char '.')
+metaParser = char '+' >> sepBy numOrStringParser (char '.')
 
 parserSemVer :: Parser SemVer
 parserSemVer = do
@@ -64,8 +64,7 @@ parserSemVer = do
   meta <- optional metaParser
   return $ SemVer maj min patch (fromMaybe [] release) (fromMaybe [] meta)
 
-doParse p =
-  parseString p mempty
+doParse p = parseString p mempty
 
 main = do
   print $ doParse parserSemVer "2.1.1"
