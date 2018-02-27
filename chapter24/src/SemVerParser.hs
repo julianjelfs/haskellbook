@@ -66,6 +66,23 @@ parserSemVer = do
 
 doParse p = parseString p mempty
 
+parseDigit :: Parser Char
+parseDigit =
+  choice $ char <$> ['1'..'9']
+
+base10Integer :: Parser Integer
+base10Integer =
+  read <$> some parseDigit
+
+negativeBase10Integer :: Parser Integer
+negativeBase10Integer = do
+  s <- optional (char '-')
+  n <- base10Integer
+  return $
+    case s of
+      Just _ -> negate n
+      Nothing -> n
+
 main = do
   print $ doParse parserSemVer "2.1.1"
   print $ doParse parserSemVer "1.0.0-x.7.z.92"
