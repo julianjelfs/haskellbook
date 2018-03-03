@@ -10,12 +10,12 @@ maintainer:          example@example.com
 copyright:           2018 Author name here
 category:            Web
 build-type:          Simple
-extra-source-files:  README.md
+extra-source-files:  README.md, data/logdata.txt
 cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib, LearnParsers, Fractions, Ini, Marshalling, SemVerParser, PhoneParser
+  exposed-modules:     Lib, LearnParsers, Fractions, Ini, Marshalling, SemVerParser, PhoneParser, LogParser
   build-depends:       base >= 4.7 && < 5
                      , trifecta
                      , parsers
@@ -26,6 +26,7 @@ library
                      , raw-strings-qq
                      , aeson
                      , parsec
+                     , time
   default-language:    Haskell2010
 
 source-repository head

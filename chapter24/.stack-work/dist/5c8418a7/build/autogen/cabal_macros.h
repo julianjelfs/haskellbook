@@ -121,6 +121,17 @@
   (major1) == 3 && (major2) == 1 && (minor) <= 13)
 #endif /* MIN_VERSION_parsec */
 
+/* package time-1.8.0.2 */
+#ifndef VERSION_time
+#define VERSION_time "1.8.0.2"
+#endif /* VERSION_time */
+#ifndef MIN_VERSION_time
+#define MIN_VERSION_time(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  8 || \
+  (major1) == 1 && (major2) == 8 && (minor) <= 0)
+#endif /* MIN_VERSION_time */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -210,10 +221,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-464WkTmqJiJ6twVt1BYa0P"
+#define CURRENT_PACKAGE_KEY "chapter24-0.1.0.0-8rHXfyvmyUZDrBjTejGFpb"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-464WkTmqJiJ6twVt1BYa0P"
+#define CURRENT_COMPONENT_ID "chapter24-0.1.0.0-8rHXfyvmyUZDrBjTejGFpb"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
