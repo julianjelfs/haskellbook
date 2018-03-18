@@ -27,5 +27,13 @@ swapEither :: Either e a -> Either a e
 swapEither (Left e) = Right e
 swapEither (Right a) = Left a
 
-    
 
+either' :: (a -> c) -> (b -> c) -> Either a b -> c
+either' fa _ (Left a) = fa a
+either' _ fb (Right b) = fb b
+
+eitherT :: Monad m => (a -> m c)
+        -> (b -> m c)
+        -> EitherT a m b
+        -> m c
+eitherT fa fb (EitherT me) = me >>= either' fa fb
