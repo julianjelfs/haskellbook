@@ -1,0 +1,588 @@
+
+==================== FINAL INTERFACE ====================
+2018-03-24 12:56:13.9181474 UTC
+
+interface chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW:EitherT 8022
+  interface hash: 537b97c9e67db4df017e08f407b15f34
+  ABI hash: 438825390121384de33bbf928d572e4f
+  export-list hash: 328accd3b92ac5b3b17391d268d1b063
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 06e465fa45c1acdc603ce92cbba310af
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  EitherT.either'
+  EitherT.eitherT
+  EitherT.swapEither
+  EitherT.swapEitherT
+  EitherT.EitherT{EitherT.EitherT runEitherT}
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:Data.Either 79b3aa7621c39f085b8b2cedd9d3b61b
+import  -/  base-4.10.1.0:Data.Functor b59a97e639e05373a94999f9bb899676
+import  -/  base-4.10.1.0:GHC.Base 8f949d675e49677c272f02ab7a85fe18
+import  -/  base-4.10.1.0:Prelude a93a9400cc0c816c2ee5f39399baa7a0
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT ::
+    GHC.Base.Applicative m =>
+    GHC.Base.Applicative (EitherT.EitherT e m)
+  DFunId
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),C(U),C(C1(U)),A,A,A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ e (v :: GHC.Base.Applicative m).
+                  @ (EitherT.EitherT e m)
+                  (EitherT.$fApplicativeEitherT_$cp1Applicative @ m @ e v)
+                  (EitherT.$fApplicativeEitherT5 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N).
+                   <a>_R ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N))
+                  (EitherT.$fApplicativeEitherT4 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <EitherT.EitherT e m (a -> b)>_R
+                   ->_R <EitherT.EitherT e m a>_R
+                   ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N))
+                  (EitherT.$fApplicativeEitherT_$cliftA2 @ m @ e v)
+                  (EitherT.$fApplicativeEitherT1 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <EitherT.EitherT e m a>_R
+                   ->_R <EitherT.EitherT e m b>_R
+                   ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N))
+                  (EitherT.$fApplicativeEitherT_$c<* @ m @ e v) -}
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT1 ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    EitherT.EitherT e m a
+    -> EitherT.EitherT e m b -> m (Data.Either.Either e b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LLL),U(U(C(C1(U)),A),A,1*C1(C1(U)),A,A,A)><L,U><L,U>,
+     Unfolding: (\ @ m :: * -> *
+                   @ e
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   (eta :: EitherT.EitherT e m a)
+                   (eta1 :: EitherT.EitherT e m b) ->
+                 GHC.Base.<*>
+                   @ m
+                   $dApplicative
+                   @ (Data.Either.Either e b)
+                   @ (Data.Either.Either e b)
+                   (GHC.Base.fmap
+                      @ m
+                      (GHC.Base.$p1Applicative @ m $dApplicative)
+                      @ (Data.Either.Either e (b -> b))
+                      @ (Data.Either.Either e b -> Data.Either.Either e b)
+                      (Data.Either.$fApplicativeEither_$c<*> @ e @ b @ b)
+                      (GHC.Base.fmap
+                         @ m
+                         (GHC.Base.$p1Applicative @ m $dApplicative)
+                         @ (Data.Either.Either e a)
+                         @ (Data.Either.Either e (b -> b))
+                         (EitherT.$fApplicativeEitherT2 @ e @ b @ a)
+                         eta `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)))
+                   eta1 `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N)) -}
+011d620a476909870f3f5ba5465d5cad
+  $fApplicativeEitherT2 ::
+    Data.Either.Either e a -> Data.Either.Either e (b -> b)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ b @ a (ds1 :: Data.Either.Either e a) ->
+                 case ds1 of wild {
+                   Data.Either.Left x -> Data.Either.Left @ e @ (b -> b) x
+                   Data.Either.Right y -> EitherT.$fApplicativeEitherT3 @ b @ e }) -}
+377b6dff6f521e6b15540de49e9ecb60
+  $fApplicativeEitherT3 :: Data.Either.Either e (b -> b)
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (\ @ b @ e ->
+                 Data.Either.Right @ e @ (b -> b) (GHC.Base.breakpoint @ b)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT4 ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    EitherT.EitherT e m (a -> b)
+    -> EitherT.EitherT e m a -> m (Data.Either.Either e b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LLL),U(1*U(1*C1(C1(U)),A),A,1*C1(C1(U)),A,A,A)><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   (eta :: EitherT.EitherT e m (a -> b))
+                   (eta1 :: EitherT.EitherT e m a) ->
+                 GHC.Base.<*>
+                   @ m
+                   $dApplicative
+                   @ (Data.Either.Either e a)
+                   @ (Data.Either.Either e b)
+                   (GHC.Base.fmap
+                      @ m
+                      (GHC.Base.$p1Applicative @ m $dApplicative)
+                      @ (Data.Either.Either e (a -> b))
+                      @ (Data.Either.Either e a -> Data.Either.Either e b)
+                      (Data.Either.$fApplicativeEither_$c<*> @ e @ a @ b)
+                      eta `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a -> b>_N))
+                   eta1 `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)) -}
+9e7f277de163077b2c7da407aaaff5ca
+  $fApplicativeEitherT5 ::
+    GHC.Base.Applicative m => forall a. a -> m (Data.Either.Either e a)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LC(S)LLLL),1*U(A,1*C1(U),A,A,A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   (x :: a) ->
+                 GHC.Base.pure
+                   @ m
+                   $dApplicative
+                   @ (Data.Either.Either e a)
+                   (Data.Either.Right @ e @ a x)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT_$c<* ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    EitherT.EitherT e m a
+    -> EitherT.EitherT e m b -> EitherT.EitherT e m a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b ->
+                 EitherT.$fApplicativeEitherT_$cliftA2
+                   @ m
+                   @ e
+                   $dApplicative
+                   @ a
+                   @ b
+                   @ a
+                   (GHC.Base.const @ a @ b)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT_$cliftA2 ::
+    GHC.Base.Applicative m =>
+    forall a b c.
+    (a -> b -> c)
+    -> EitherT.EitherT e m a
+    -> EitherT.EitherT e m b
+    -> EitherT.EitherT e m c
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,A,A)><L,C(U)><L,U>,
+     Unfolding: (\ @ m :: * -> *
+                   @ e
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   @ c
+                   (eta :: a -> b -> c)
+                   (eta1 :: EitherT.EitherT e m a) ->
+                 let {
+                   lvl1 :: m (Data.Either.Either e b -> Data.Either.Either e c)
+                   = GHC.Base.fmap
+                       @ m
+                       (GHC.Base.$p1Applicative @ m $dApplicative)
+                       @ (Data.Either.Either e (b -> c))
+                       @ (Data.Either.Either e b -> Data.Either.Either e c)
+                       (Data.Either.$fApplicativeEither_$c<*> @ e @ b @ c)
+                       (GHC.Base.fmap
+                          @ m
+                          (GHC.Base.$p1Applicative @ m $dApplicative)
+                          @ (Data.Either.Either e a)
+                          @ (Data.Either.Either e (b -> c))
+                          (Data.Either.$fApplicativeEither_$cfmap @ e @ a @ (b -> c) eta)
+                          eta1 `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N))
+                 } in
+                 (\ (eta2 :: EitherT.EitherT e m b) ->
+                  GHC.Base.<*>
+                    @ m
+                    $dApplicative
+                    @ (Data.Either.Either e b)
+                    @ (Data.Either.Either e c)
+                    lvl1
+                    eta2 `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N))
+                   `cast`
+                 (<EitherT.EitherT e m b>_R
+                  ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <c>_N))) -}
+ff020787d9efe032443a00671f0f6a55
+  $fApplicativeEitherT_$cp1Applicative ::
+    GHC.Base.Applicative m => GHC.Base.Functor (EitherT.EitherT e m)
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(C(C1(U)),A),A,A,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> * @ e ($dApplicative :: GHC.Base.Applicative m) ->
+                 EitherT.$fFunctorEitherT
+                   @ m
+                   @ e
+                   (GHC.Base.$p1Applicative @ m $dApplicative)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fFunctorEitherT ::
+    GHC.Base.Functor m => GHC.Base.Functor (EitherT.EitherT e m)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ e (v :: GHC.Base.Functor m).
+                  @ (EitherT.EitherT e m)
+                  (EitherT.$fFunctorEitherT2 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <a -> b>_R
+                   ->_R <EitherT.EitherT e m a>_R
+                   ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N))
+                  (EitherT.$fFunctorEitherT1 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <a>_R
+                   ->_R <EitherT.EitherT e m b>_R
+                   ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fFunctorEitherT1 ::
+    GHC.Base.Functor m =>
+    forall a b.
+    a -> EitherT.EitherT e m b -> m (Data.Either.Either e a)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (x :: a)
+                   (eta :: EitherT.EitherT e m b) ->
+                 let {
+                   lvl1 :: Data.Either.Either e a = Data.Either.Right @ e @ a x
+                 } in
+                 GHC.Base.fmap
+                   @ m
+                   $dFunctor
+                   @ (Data.Either.Either e b)
+                   @ (Data.Either.Either e a)
+                   (\ (ds1 :: Data.Either.Either e b) ->
+                    case ds1 of wild {
+                      Data.Either.Left x1 -> Data.Either.Left @ e @ a x1
+                      Data.Either.Right y -> lvl1 })
+                   eta `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fFunctorEitherT2 ::
+    GHC.Base.Functor m =>
+    forall a b.
+    (a -> b) -> EitherT.EitherT e m a -> m (Data.Either.Either e b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,C(U)><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (f :: a -> b)
+                   (ds :: EitherT.EitherT e m a) ->
+                 GHC.Base.fmap
+                   @ m
+                   $dFunctor
+                   @ (Data.Either.Either e a)
+                   @ (Data.Either.Either e b)
+                   (Data.Either.$fApplicativeEither_$cfmap @ e @ a @ b f)
+                   ds `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fMonadEitherT ::
+    GHC.Base.Monad m => GHC.Base.Monad (EitherT.EitherT e m)
+  DFunId
+  {- Arity: 1,
+     Strictness: <L,U(U(U(C(C1(U)),A),C(U),C(C1(U)),A,A,A),C(C1(U)),A,C(U),A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ e (v :: GHC.Base.Monad m).
+                  @ (EitherT.EitherT e m)
+                  (EitherT.$fMonadEitherT_$cp1Monad @ m @ e v)
+                  (EitherT.$fMonadEitherT2 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <EitherT.EitherT e m a>_R
+                   ->_R <a -> EitherT.EitherT e m b>_R
+                   ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N))
+                  (EitherT.$fMonadEitherT_$c>> @ m @ e v)
+                  (EitherT.$fMonadEitherT1 @ m @ e v)
+                    `cast`
+                  (forall (a :: <*>_N).
+                   <a>_R ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N))
+                  (\ @ a ->
+                   GHC.Err.errorWithoutStackTrace
+                     @ 'GHC.Types.LiftedRep
+                     @ (EitherT.EitherT e m a)) -}
+c3d633296f1813b7cea0fed8d7771dc4
+  $fMonadEitherT1 ::
+    GHC.Base.Monad m => forall a. a -> m (Data.Either.Either e a)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(S(LC(S)LLLL)LLLL),1*U(1*U(A,1*C1(U),A,A,A,A),A,A,A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   (eta :: a) ->
+                 GHC.Base.pure
+                   @ m
+                   (GHC.Base.$p1Monad @ m $dMonad)
+                   @ (Data.Either.Either e a)
+                   (Data.Either.Right @ e @ a eta)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fMonadEitherT2 ::
+    GHC.Base.Monad m =>
+    forall a b.
+    EitherT.EitherT e m a
+    -> (a -> EitherT.EitherT e m b) -> m (Data.Either.Either e b)
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),U(A,1*C1(C1(U)),A,C(U),A)><L,U><L,C(U)>,
+     Unfolding: (\ @ m :: * -> *
+                   @ e
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   @ b
+                   (ds :: EitherT.EitherT e m a)
+                   (f :: a -> EitherT.EitherT e m b) ->
+                 GHC.Base.>>=
+                   @ m
+                   $dMonad
+                   @ (Data.Either.Either e a)
+                   @ (Data.Either.Either e b)
+                   ds `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)
+                   (\ (v :: Data.Either.Either e a) ->
+                    case v of wild {
+                      Data.Either.Left err
+                      -> GHC.Base.return
+                           @ m
+                           $dMonad
+                           @ (Data.Either.Either e b)
+                           (Data.Either.Left @ e @ b err)
+                      Data.Either.Right ok
+                      -> (f ok) `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N) })) -}
+ff020787d9efe032443a00671f0f6a55
+  $fMonadEitherT_$c>> ::
+    GHC.Base.Monad m =>
+    forall a b.
+    EitherT.EitherT e m a
+    -> EitherT.EitherT e m b -> EitherT.EitherT e m b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),U(A,1*C1(C1(U)),A,C(U),A)><L,U><L,U>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (3, False, False)
+                (\ @ m :: * -> *
+                   @ e
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   @ b
+                   (m1 :: EitherT.EitherT e m a)
+                   (k :: EitherT.EitherT e m b) ->
+                 GHC.Base.>>=
+                   @ m
+                   $dMonad
+                   @ (Data.Either.Either e a)
+                   @ (Data.Either.Either e b)
+                   m1 `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)
+                   (\ (v :: Data.Either.Either e a) ->
+                    case v of wild {
+                      Data.Either.Left err
+                      -> GHC.Base.return
+                           @ m
+                           $dMonad
+                           @ (Data.Either.Either e b)
+                           (Data.Either.Left @ e @ b err)
+                      Data.Either.Right ok
+                      -> k `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N) }))
+                  `cast`
+                (forall (m :: <* -> *>_N) (e :: <*>_N).
+                 <GHC.Base.Monad m>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <EitherT.EitherT e m a>_R
+                      ->_R <EitherT.EitherT e m b>_R
+                      ->_R Sym (EitherT.N:EitherT[0] <e>_N <m>_R <b>_N)) -}
+ff020787d9efe032443a00671f0f6a55
+  $fMonadEitherT_$cp1Monad ::
+    GHC.Base.Monad m => GHC.Base.Applicative (EitherT.EitherT e m)
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(U(C(C1(U)),A),C(U),C(C1(U)),A,A,A),A,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> * @ e ($dMonad :: GHC.Base.Monad m) ->
+                 EitherT.$fApplicativeEitherT
+                   @ m
+                   @ e
+                   (GHC.Base.$p1Monad @ m $dMonad)) -}
+b1350358eef4b9f01f874458fbe0a0b1
+  $tc'EitherT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4507631585546506424##
+                   6918586796977605902##
+                   EitherT.$trModule
+                   EitherT.$tc'EitherT2
+                   3#
+                   EitherT.$tc'EitherT1) -}
+23a5f89b8ea3163de10da7254c510480
+  $tc'EitherT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+18446c5b99aa9be5303914cd4492ef8a
+  $tc'EitherT2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS EitherT.$tc'EitherT3) -}
+9ff23a1a40d8958948ccc22969a856c1
+  $tc'EitherT3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'EitherT"#) -}
+a699f1038c07486283f1c70d16cee6ba
+  $tcEitherT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7239577508929452762##
+                   8215832899046102866##
+                   EitherT.$trModule
+                   EitherT.$trModule1
+                   0#
+                   EitherT.$tcEitherT1) -}
+669851f94c1d47f7875de4052c11fe18
+  $tcEitherT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+05af24600a135849e1c27f4ed639a414
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   EitherT.$trModule3
+                   EitherT.$trModule1) -}
+f637607d46bebf1208725aa36d630beb
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS EitherT.$trModule2) -}
+356412a0990f5858a5f8da53279b37d9
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("EitherT"#) -}
+95599404352114a7fa0abd65600fff2e
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS EitherT.$trModule4) -}
+ebf9b86c5070953470b05633617159ee
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW"#) -}
+ff020787d9efe032443a00671f0f6a55
+  type role EitherT nominal representational nominal
+  newtype EitherT e (m :: * -> *) a
+    = EitherT {runEitherT :: m (Data.Either.Either e a)}
+d728222f35f1e1b6a4d1e0893b9a75a3
+  either' :: (a -> c) -> (b -> c) -> Data.Either.Either a b -> c
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ c
+                   @ b
+                   (fa :: a -> c)
+                   (ds :: b -> c)
+                   (ds1 :: Data.Either.Either a b) ->
+                 case ds1 of wild {
+                   Data.Either.Left a1 -> fa a1 Data.Either.Right b1 -> ds b1 }) -}
+bbee97f412c3d698f50de9dbc4fd5869
+  eitherT ::
+    GHC.Base.Monad m =>
+    (a -> m c) -> (b -> m c) -> EitherT.EitherT a m b -> m c
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),1*U(A,1*C1(C1(U)),A,A,A)><L,C(U)><L,C(U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m :: * -> *
+                   @ a
+                   @ c
+                   @ b
+                   ($dMonad :: GHC.Base.Monad m)
+                   (fa :: a -> m c)
+                   (fb :: b -> m c)
+                   (ds :: EitherT.EitherT a m b) ->
+                 GHC.Base.>>=
+                   @ m
+                   $dMonad
+                   @ (Data.Either.Either a b)
+                   @ c
+                   ds `cast` (EitherT.N:EitherT[0] <a>_N <m>_R <b>_N)
+                   (EitherT.either' @ a @ (m c) @ b fa fb)) -}
+ff020787d9efe032443a00671f0f6a55
+  runEitherT :: EitherT.EitherT e m a -> m (Data.Either.Either e a)
+  RecSel Left EitherT.EitherT
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                EitherT.runEitherT1
+                  `cast`
+                (forall (e :: <*>_N) (m :: <* -> *>_N) (a :: <*>_N).
+                 <EitherT.EitherT e m a>_R
+                 ->_R EitherT.N:EitherT[0] <e>_N <m>_R <a>_N) -}
+ff020787d9efe032443a00671f0f6a55
+  runEitherT1 :: EitherT.EitherT e m a -> EitherT.EitherT e m a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ e @ m :: * -> * @ a (ds :: EitherT.EitherT e m a) -> ds) -}
+1319818fd67c17c020e511bdb6c39068
+  swapEither :: Data.Either.Either e a -> Data.Either.Either a e
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ a (ds :: Data.Either.Either e a) ->
+                 case ds of wild {
+                   Data.Either.Left e1 -> Data.Either.Right @ a @ e e1
+                   Data.Either.Right a1 -> Data.Either.Left @ a @ e a1 }) -}
+fdbc6954fd8fc07b62d095cff59e21e2
+  swapEitherT ::
+    GHC.Base.Functor m =>
+    EitherT.EitherT e m a -> EitherT.EitherT a m e
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                EitherT.swapEitherT1
+                  `cast`
+                (forall (m :: <* -> *>_N) (e :: <*>_N) (a :: <*>_N).
+                 <GHC.Base.Functor m>_R
+                 ->_R <EitherT.EitherT e m a>_R
+                 ->_R Sym (EitherT.N:EitherT[0] <a>_N <m>_R <e>_N)) -}
+8371220a836ea2afe647c21bca16f84a
+  swapEitherT1 ::
+    GHC.Base.Functor m =>
+    EitherT.EitherT e m a -> m (Data.Either.Either a e)
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m :: * -> *
+                   @ e
+                   @ a
+                   ($dFunctor :: GHC.Base.Functor m)
+                   (ds :: EitherT.EitherT e m a) ->
+                 GHC.Base.fmap
+                   @ m
+                   $dFunctor
+                   @ (Data.Either.Either e a)
+                   @ (Data.Either.Either a e)
+                   (EitherT.swapEither @ e @ a)
+                   ds `cast` (EitherT.N:EitherT[0] <e>_N <m>_R <a>_N)) -}
+instance [safe] GHC.Base.Applicative [EitherT.EitherT]
+  = EitherT.$fApplicativeEitherT
+instance [safe] GHC.Base.Functor [EitherT.EitherT]
+  = EitherT.$fFunctorEitherT
+instance [safe] GHC.Base.Monad [EitherT.EitherT]
+  = EitherT.$fMonadEitherT
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

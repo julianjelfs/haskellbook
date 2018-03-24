@@ -1,0 +1,448 @@
+
+==================== FINAL INTERFACE ====================
+2018-03-24 12:56:14.5736808 UTC
+
+interface chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW:ReaderT 8022
+  interface hash: 92998b765654c4916752edf18a7d9004
+  ABI hash: 9d6a5411c07cb465b769289950d4cb2a
+  export-list hash: 8163aff027bd8963a20c33809af9b679
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 06e465fa45c1acdc603ce92cbba310af
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  ReaderT.ReaderT{ReaderT.ReaderT runReaderT}
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:Data.Functor b59a97e639e05373a94999f9bb899676
+import  -/  base-4.10.1.0:GHC.Base 8f949d675e49677c272f02ab7a85fe18
+import  -/  base-4.10.1.0:Prelude a93a9400cc0c816c2ee5f39399baa7a0
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT ::
+    GHC.Base.Applicative m =>
+    GHC.Base.Applicative (ReaderT.ReaderT r m)
+  DFunId
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,U(U(C(C(U)),A),C(U),C(C1(U)),A,A,A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ r (v :: GHC.Base.Applicative m).
+                  @ (ReaderT.ReaderT r m)
+                  (ReaderT.$fApplicativeReaderT_$cp1Applicative @ m @ r v)
+                  (ReaderT.$fApplicativeReaderT_$cpure @ m @ r v)
+                  (ReaderT.$fApplicativeReaderT2 @ m @ r v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <ReaderT.ReaderT r m (a -> b)>_R
+                   ->_R <ReaderT.ReaderT r m a>_R
+                   ->_R Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N))
+                  (ReaderT.$fApplicativeReaderT_$cliftA2 @ m @ r v)
+                  (ReaderT.$fApplicativeReaderT_$c*> @ m @ r v)
+                  (ReaderT.$fApplicativeReaderT_$c<* @ m @ r v) -}
+80be5f831c2cca8789386aa67894277a
+  $fApplicativeReaderT1 :: a -> b -> b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U>,
+     Unfolding: InlineRule (2, True, True)
+                (\ @ b @ a (ds :: a) (eta :: b) -> eta) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT2 ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    ReaderT.ReaderT r m (a -> b) -> ReaderT.ReaderT r m a -> r -> m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LLL),1*U(A,A,1*C1(C1(U)),A,A,A)><L,1*C1(U)><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   (ds :: ReaderT.ReaderT r m (a -> b))
+                   (ds1 :: ReaderT.ReaderT r m a)
+                   (eta :: r) ->
+                 GHC.Base.<*>
+                   @ m
+                   $dApplicative
+                   @ a
+                   @ b
+                   (ds `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a -> b>_N) eta)
+                   (ds1 `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) eta)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT_$c*> ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    ReaderT.ReaderT r m a
+    -> ReaderT.ReaderT r m b -> ReaderT.ReaderT r m b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(1*U(1*C1(C(U)),A),A,C(C1(U)),A,A,A)><L,C(U)><L,C(U)>,
+     Unfolding: (\ @ m :: * -> *
+                   @ r
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   (eta :: ReaderT.ReaderT r m a)
+                   (eta1 :: ReaderT.ReaderT r m b) ->
+                 let {
+                   f :: m a -> m (b -> b)
+                   = GHC.Base.fmap
+                       @ m
+                       (GHC.Base.$p1Applicative @ m $dApplicative)
+                       @ a
+                       @ (b -> b)
+                       (ReaderT.$fApplicativeReaderT1 @ b @ a)
+                 } in
+                 (\ (eta2 :: r) ->
+                  GHC.Base.<*>
+                    @ m
+                    $dApplicative
+                    @ b
+                    @ b
+                    (f (eta `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) eta2))
+                    (eta1 `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N) eta2))
+                   `cast`
+                 (Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N))) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT_$c<* ::
+    GHC.Base.Applicative m =>
+    forall a b.
+    ReaderT.ReaderT r m a
+    -> ReaderT.ReaderT r m b -> ReaderT.ReaderT r m a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(U(C(C(U)),A),A,C(C1(U)),A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b ->
+                 ReaderT.$fApplicativeReaderT_$cliftA2
+                   @ m
+                   @ r
+                   $dApplicative
+                   @ a
+                   @ b
+                   @ a
+                   (GHC.Base.const @ a @ b)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT_$cliftA2 ::
+    GHC.Base.Applicative m =>
+    forall a b c.
+    (a -> b -> c)
+    -> ReaderT.ReaderT r m a
+    -> ReaderT.ReaderT r m b
+    -> ReaderT.ReaderT r m c
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(1*U(1*C1(C(U)),A),A,C(C1(U)),A,A,A)><L,U><L,C(U)>,
+     Unfolding: (\ @ m :: * -> *
+                   @ r
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   @ b
+                   @ c
+                   (eta :: a -> b -> c)
+                   (eta1 :: ReaderT.ReaderT r m a) ->
+                 let {
+                   f :: m a -> m (b -> c)
+                   = GHC.Base.fmap
+                       @ m
+                       (GHC.Base.$p1Applicative @ m $dApplicative)
+                       @ a
+                       @ (b -> c)
+                       eta
+                 } in
+                 (\ (ds :: ReaderT.ReaderT r m b) (eta2 :: r) ->
+                  GHC.Base.<*>
+                    @ m
+                    $dApplicative
+                    @ b
+                    @ c
+                    (f (eta1 `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) eta2))
+                    (ds `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N) eta2))
+                   `cast`
+                 (<ReaderT.ReaderT r m b>_R
+                  ->_R Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <c>_N))) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT_$cp1Applicative ::
+    GHC.Base.Applicative m => GHC.Base.Functor (ReaderT.ReaderT r m)
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(C(C(U)),A),A,A,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> * @ r ($dApplicative :: GHC.Base.Applicative m) ->
+                 ReaderT.$fFunctorReaderT
+                   @ m
+                   @ r
+                   (GHC.Base.$p1Applicative @ m $dApplicative)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fApplicativeReaderT_$cpure ::
+    GHC.Base.Applicative m => forall a. a -> ReaderT.ReaderT r m a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(A,1*C1(U),A,A,A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dApplicative :: GHC.Base.Applicative m)
+                   @ a
+                   (a1 :: a) ->
+                 let {
+                   x :: m a = GHC.Base.pure @ m $dApplicative @ a a1
+                 } in
+                 (\ (ds :: r) -> x)
+                   `cast`
+                 (Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N))) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fFunctorReaderT ::
+    GHC.Base.Functor m => GHC.Base.Functor (ReaderT.ReaderT r m)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C(U)),A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ r (v :: GHC.Base.Functor m).
+                  @ (ReaderT.ReaderT r m)
+                  (ReaderT.$fFunctorReaderT_$cfmap @ m @ r v)
+                  (ReaderT.$fFunctorReaderT_$c<$ @ m @ r v) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fFunctorReaderT_$c<$ ::
+    GHC.Base.Functor m =>
+    forall a b. a -> ReaderT.ReaderT r m b -> ReaderT.ReaderT r m a
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C(U)),A)><L,U><L,C(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (x :: a)
+                   (eta :: ReaderT.ReaderT r m b) ->
+                 let {
+                   f :: m b -> m a
+                   = GHC.Base.fmap @ m $dFunctor @ b @ a (\ (ds :: b) -> x)
+                 } in
+                 (\ (x1 :: r) ->
+                  f (eta `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N) x1))
+                   `cast`
+                 (Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N))) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fFunctorReaderT_$cfmap ::
+    GHC.Base.Functor m =>
+    forall a b.
+    (a -> b) -> ReaderT.ReaderT r m a -> ReaderT.ReaderT r m b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C(U)),A)><L,U><L,C(U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (f :: a -> b)
+                   (ds :: ReaderT.ReaderT r m a) ->
+                 let {
+                   f1 :: m a -> m b = GHC.Base.fmap @ m $dFunctor @ a @ b f
+                 } in
+                 (\ (x :: r) ->
+                  f1 (ds `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) x))
+                   `cast`
+                 (Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N))) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fMonadReaderT ::
+    GHC.Base.Monad m => GHC.Base.Monad (ReaderT.ReaderT r m)
+  DFunId
+  {- Arity: 1,
+     Strictness: <L,U(U(U(C(C(U)),A),C(U),C(C1(U)),A,A,A),C(C1(U)),A,A,A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ r (v :: GHC.Base.Monad m).
+                  @ (ReaderT.ReaderT r m)
+                  (ReaderT.$fMonadReaderT_$cp1Monad @ m @ r v)
+                  (ReaderT.$fMonadReaderT1 @ m @ r v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <ReaderT.ReaderT r m a>_R
+                   ->_R <a -> ReaderT.ReaderT r m b>_R
+                   ->_R Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N))
+                  (ReaderT.$fMonadReaderT_$c>> @ m @ r v)
+                  (ReaderT.$fMonadReaderT_$creturn @ m @ r v)
+                  (\ @ a ->
+                   GHC.Err.errorWithoutStackTrace
+                     @ 'GHC.Types.LiftedRep
+                     @ (ReaderT.ReaderT r m a)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fMonadReaderT1 ::
+    GHC.Base.Monad m =>
+    forall a b.
+    ReaderT.ReaderT r m a -> (a -> ReaderT.ReaderT r m b) -> r -> m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),1*U(A,1*C1(C1(U)),A,A,A)><L,1*C1(U)><L,C(C1(U))><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   @ b
+                   (ds :: ReaderT.ReaderT r m a)
+                   (f :: a -> ReaderT.ReaderT r m b)
+                   (r1 :: r) ->
+                 GHC.Base.>>=
+                   @ m
+                   $dMonad
+                   @ a
+                   @ b
+                   (ds `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) r1)
+                   (\ (a1 :: a) ->
+                    (f a1) `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N) r1)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fMonadReaderT_$c>> ::
+    GHC.Base.Monad m =>
+    forall a b.
+    ReaderT.ReaderT r m a
+    -> ReaderT.ReaderT r m b -> ReaderT.ReaderT r m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(S))LLL),1*U(A,1*C1(C1(U)),A,A,A)><L,1*C1(U)><L,1*C1(U)><L,U>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (3, False, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   @ b
+                   (m1 :: ReaderT.ReaderT r m a)
+                   (k :: ReaderT.ReaderT r m b)
+                   (r1 :: r) ->
+                 GHC.Base.>>=
+                   @ m
+                   $dMonad
+                   @ a
+                   @ b
+                   (m1 `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) r1)
+                   (\ (a1 :: a) ->
+                    k `cast` (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N) r1))
+                  `cast`
+                (forall (m :: <* -> *>_N) (r :: <*>_N).
+                 <GHC.Base.Monad m>_R
+                 ->_R forall (a :: <*>_N) (b :: <*>_N).
+                      <ReaderT.ReaderT r m a>_R
+                      ->_R <ReaderT.ReaderT r m b>_R
+                      ->_R Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <b>_N)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fMonadReaderT_$cp1Monad ::
+    GHC.Base.Monad m => GHC.Base.Applicative (ReaderT.ReaderT r m)
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(U(C(C(U)),A),C(U),C(C1(U)),A,A,A),A,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m :: * -> * @ r ($dMonad :: GHC.Base.Monad m) ->
+                 ReaderT.$fApplicativeReaderT
+                   @ m
+                   @ r
+                   (GHC.Base.$p1Monad @ m $dMonad)) -}
+6329f4ba681f5626c592a1bd1910635c
+  $fMonadReaderT_$creturn ::
+    GHC.Base.Monad m => forall a. a -> ReaderT.ReaderT r m a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*U(1*U(A,1*C1(U),A,A,A,A),A,A,A,A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m :: * -> *
+                   @ r
+                   ($dMonad :: GHC.Base.Monad m)
+                   @ a
+                   (eta :: a) ->
+                 let {
+                   x :: m a
+                   = GHC.Base.pure @ m (GHC.Base.$p1Monad @ m $dMonad) @ a eta
+                 } in
+                 (\ (ds :: r) -> x)
+                   `cast`
+                 (Sym (ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N))) -}
+22e36984cd11c33e52c77378ea4ffbb0
+  $tc'ReaderT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17239768146519607176##
+                   4668164604485084265##
+                   ReaderT.$trModule
+                   ReaderT.$tc'ReaderT2
+                   3#
+                   ReaderT.$tc'ReaderT1) -}
+fb8af5fd810e0f48ca842e5feed3bf0f
+  $tc'ReaderT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+1ccb7633e7cb1e8bac2be760a427c4f3
+  $tc'ReaderT2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS ReaderT.$tc'ReaderT3) -}
+265a047e6991c858996bc5beacbe1117
+  $tc'ReaderT3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'ReaderT"#) -}
+9d5938b624ab6572a4bc350b6fd7a259
+  $tcReaderT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8951692171363478747##
+                   16854356592013592407##
+                   ReaderT.$trModule
+                   ReaderT.$trModule1
+                   0#
+                   ReaderT.$tcReaderT1) -}
+57c4799fcf889a30cac4b9835d1eb9aa
+  $tcReaderT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+355492e63f547ce6a182f51e5a0bf8fa
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   ReaderT.$trModule3
+                   ReaderT.$trModule1) -}
+07af422b284c7994ea9aa81ebc32e469
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS ReaderT.$trModule2) -}
+6d54f512bb9c3500bf72c933cc12cf15
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ReaderT"#) -}
+08c050c1095b97c60bbfcfc68ad549f8
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS ReaderT.$trModule4) -}
+eeb444813076702b5449e14eb4bb99cf
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW"#) -}
+6329f4ba681f5626c592a1bd1910635c
+  type role ReaderT representational representational nominal
+  newtype ReaderT r (m :: * -> *) a
+    = ReaderT {runReaderT :: r -> m a}
+6329f4ba681f5626c592a1bd1910635c
+  runReaderT :: ReaderT.ReaderT r m a -> r -> m a
+  RecSel Left ReaderT.ReaderT
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                ReaderT.runReaderT1
+                  `cast`
+                (forall (r :: <*>_N) (m :: <* -> *>_N) (a :: <*>_N).
+                 <ReaderT.ReaderT r m a>_R
+                 ->_R ReaderT.N:ReaderT[0] <r>_R <m>_R <a>_N) -}
+6329f4ba681f5626c592a1bd1910635c
+  runReaderT1 :: ReaderT.ReaderT r m a -> ReaderT.ReaderT r m a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ r @ m :: * -> * @ a (ds :: ReaderT.ReaderT r m a) -> ds) -}
+instance [safe] GHC.Base.Applicative [ReaderT.ReaderT]
+  = ReaderT.$fApplicativeReaderT
+instance [safe] GHC.Base.Functor [ReaderT.ReaderT]
+  = ReaderT.$fFunctorReaderT
+instance [safe] GHC.Base.Monad [ReaderT.ReaderT]
+  = ReaderT.$fMonadReaderT
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

@@ -1,0 +1,175 @@
+
+==================== FINAL INTERFACE ====================
+2018-03-24 12:56:15.69965 UTC
+
+interface chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW:StateT 8022
+  interface hash: 06e5fc32a8908202a340a0e20ba0c53a
+  ABI hash: 4fedec61fc7d05bf4f8d497fbb2c24fb
+  export-list hash: e17469e0fa9edfdcd053386bdcee382f
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 06e465fa45c1acdc603ce92cbba310af
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  StateT.StateT{StateT.StateT runStateT}
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:Data.Functor b59a97e639e05373a94999f9bb899676
+import  -/  base-4.10.1.0:GHC.Base 8f949d675e49677c272f02ab7a85fe18
+import  -/  base-4.10.1.0:Prelude a93a9400cc0c816c2ee5f39399baa7a0
+ac2a9ca598de20d742c5c0b9563ef895
+  $fFunctorStateT ::
+    GHC.Base.Functor m => GHC.Base.Functor (StateT.StateT s m)
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(C1(U)),A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ m :: * -> * @ s (v :: GHC.Base.Functor m).
+                  @ (StateT.StateT s m)
+                  (StateT.$fFunctorStateT2 @ m @ s v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <a -> b>_R
+                   ->_R <StateT.StateT s m a>_R
+                   ->_R Sym (StateT.N:StateT[0] <s>_N <m>_R <b>_N))
+                  (StateT.$fFunctorStateT1 @ m @ s v)
+                    `cast`
+                  (forall (a :: <*>_N) (b :: <*>_N).
+                   <a>_R
+                   ->_R <StateT.StateT s m b>_R
+                   ->_R Sym (StateT.N:StateT[0] <s>_N <m>_R <a>_N)) -}
+ac2a9ca598de20d742c5c0b9563ef895
+  $fFunctorStateT1 ::
+    GHC.Base.Functor m =>
+    forall a b. a -> StateT.StateT s m b -> s -> m (a, s)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,U><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m :: * -> *
+                   @ s
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (x :: a)
+                   (ds :: StateT.StateT s m b)
+                   (s1 :: s) ->
+                 GHC.Base.fmap
+                   @ m
+                   $dFunctor
+                   @ (b, s)
+                   @ (a, s)
+                   (\ (ds1 :: (b, s)) -> case ds1 of wild { (,) a1 s' -> (x, s') })
+                   (ds `cast` (StateT.N:StateT[0] <s>_N <m>_R <b>_N) s1)) -}
+ac2a9ca598de20d742c5c0b9563ef895
+  $fFunctorStateT2 ::
+    GHC.Base.Functor m =>
+    forall a b. (a -> b) -> StateT.StateT s m a -> s -> m (b, s)
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S))L),1*U(1*C1(C1(U)),A)><L,C(U)><L,1*C1(U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m :: * -> *
+                   @ s
+                   ($dFunctor :: GHC.Base.Functor m)
+                   @ a
+                   @ b
+                   (f :: a -> b)
+                   (ds :: StateT.StateT s m a)
+                   (s1 :: s) ->
+                 GHC.Base.fmap
+                   @ m
+                   $dFunctor
+                   @ (a, s)
+                   @ (b, s)
+                   (\ (ds1 :: (a, s)) -> case ds1 of wild { (,) a1 s' -> (f a1, s') })
+                   (ds `cast` (StateT.N:StateT[0] <s>_N <m>_R <a>_N) s1)) -}
+82f9bcf22bc291e31611de5a9f3f3dc4
+  $tc'StateT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3373976467222517767##
+                   6703577452014954097##
+                   StateT.$trModule
+                   StateT.$tc'StateT2
+                   3#
+                   StateT.$tc'StateT1) -}
+b6672df4b285abf05db65f76fdbdedf7
+  $tc'StateT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+6861371d9f974a807889d6b551cf2dc9
+  $tc'StateT2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS StateT.$tc'StateT3) -}
+9b36984bcd179dc5853878ecd732048d
+  $tc'StateT3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'StateT"#) -}
+a47b85847ac45d423cfa0fa1f92802bd
+  $tcStateT :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13388543682889298441##
+                   12547474570085568384##
+                   StateT.$trModule
+                   StateT.$trModule1
+                   0#
+                   StateT.$tcStateT1) -}
+f4b69a931046e72a600f4d7bc746fd31
+  $tcStateT1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+5f5192ce4645495a4b1291f8ac9ea7c4
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   StateT.$trModule3
+                   StateT.$trModule1) -}
+cfd9e2db392fd72e410ff8077c8a9c6b
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS StateT.$trModule2) -}
+5a472a8d4b904969a0a1e8fc8914c61f
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("StateT"#) -}
+3d9ec5427c398a36640b82ffa3c929aa
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS StateT.$trModule4) -}
+3d4af5efce1dabb5512ba3f3b0839c5e
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("chapter26-0.1.0.0-5fILfgXyW0JHWGnYlzC9cW"#) -}
+ac2a9ca598de20d742c5c0b9563ef895
+  type role StateT nominal representational nominal
+  newtype StateT s (m :: * -> *) a
+    = StateT {runStateT :: s -> m (a, s)}
+ac2a9ca598de20d742c5c0b9563ef895
+  runStateT :: StateT.StateT s m a -> s -> m (a, s)
+  RecSel Left StateT.StateT
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                StateT.runStateT1
+                  `cast`
+                (forall (s :: <*>_N) (m :: <* -> *>_N) (a :: <*>_N).
+                 <StateT.StateT s m a>_R
+                 ->_R StateT.N:StateT[0] <s>_N <m>_R <a>_N) -}
+ac2a9ca598de20d742c5c0b9563ef895
+  runStateT1 :: StateT.StateT s m a -> StateT.StateT s m a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ s @ m :: * -> * @ a (ds :: StateT.StateT s m a) -> ds) -}
+instance [safe] GHC.Base.Functor [StateT.StateT]
+  = StateT.$fFunctorStateT
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
