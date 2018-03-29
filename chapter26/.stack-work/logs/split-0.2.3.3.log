@@ -1,0 +1,7 @@
+Configuring split-0.2.3.3...
+Preprocessing library for split-0.2.3.3..
+Building library for split-0.2.3.3..
+[1 of 2] Compiling Data.List.Split.Internals ( src\Data\List\Split\Internals.hs, .stack-work\dist\5c8418a7\build\Data\List\Split\Internals.o )
+[2 of 2] Compiling Data.List.Split  ( src\Data\List\Split.hs, .stack-work\dist\5c8418a7\build\Data\List\Split.o )
+Installing library in C:\sr\snapshots\9f8b1558\lib\x86_64-windows-ghc-8.2.2\split-0.2.3.3-69JBPqG5rhJEaFzFyiVOGW
+Registering library for split-0.2.3.3..

@@ -1,0 +1,6 @@
+Configuring byteorder-1.0.4...
+Preprocessing library for byteorder-1.0.4..
+Building library for byteorder-1.0.4..
+[1 of 1] Compiling System.ByteOrder ( System\ByteOrder.hs, .stack-work\dist\5c8418a7\build\System\ByteOrder.o )
+Installing library in C:\sr\snapshots\9f8b1558\lib\x86_64-windows-ghc-8.2.2\byteorder-1.0.4-C3RUhEkbWDI7bhRvbw5CmU
+Registering library for byteorder-1.0.4..

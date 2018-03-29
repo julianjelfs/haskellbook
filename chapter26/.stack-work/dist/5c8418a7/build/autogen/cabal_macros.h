@@ -44,6 +44,28 @@
   (major1) == 0 && (major2) == 5 && (minor) <= 2)
 #endif /* MIN_VERSION_transformers */
 
+/* package containers-0.5.10.2 */
+#ifndef VERSION_containers
+#define VERSION_containers "0.5.10.2"
+#endif /* VERSION_containers */
+#ifndef MIN_VERSION_containers
+#define MIN_VERSION_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 10)
+#endif /* MIN_VERSION_containers */
+
+/* package text-1.2.3.0 */
+#ifndef VERSION_text
+#define VERSION_text "1.2.3.0"
+#endif /* VERSION_text */
+#ifndef MIN_VERSION_text
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 3)
+#endif /* MIN_VERSION_text */
+
 /* package mtl-2.2.2 */
 #ifndef VERSION_mtl
 #define VERSION_mtl "2.2.2"
@@ -144,10 +166,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter26-0.1.0.0-FKzrVQkYZ3c4odaWanNHmG"
+#define CURRENT_PACKAGE_KEY "chapter26-0.1.0.0-7XAKjxe81WuLxqQNzL6QWz"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter26-0.1.0.0-FKzrVQkYZ3c4odaWanNHmG"
+#define CURRENT_COMPONENT_ID "chapter26-0.1.0.0-7XAKjxe81WuLxqQNzL6QWz"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
