@@ -15,9 +15,9 @@ computerTurn =
 turn :: StateT Scores IO Player
 turn = do
   (h, c) <- get
-  p <- liftIO $ (read::String->Integer) <$> getLine
-  c <- liftIO $ computerTurn
-  let w = winner p c
+  h' <- liftIO $ (read::String->Integer) <$> getLine
+  c' <- liftIO $ computerTurn
+  let w = winner h' c'
   case w of
     Human -> put (h+1, c)
     Computer -> put (h, c+1)
