@@ -28,5 +28,7 @@ winner p c
   | odd $ p + c = Human 
   | even $ p + c = Computer
 
-play =
-  runStateT turn (0,0)
+play :: IO Scores
+play = do
+  (w, s) <- runStateT turn (0,0)
+  return s
