@@ -77,6 +77,17 @@
   (major1) == 2 && (major2) == 2 && (minor) <= 2)
 #endif /* MIN_VERSION_mtl */
 
+/* package random-1.1 */
+#ifndef VERSION_random
+#define VERSION_random "1.1"
+#endif /* VERSION_random */
+#ifndef MIN_VERSION_random
+#define MIN_VERSION_random(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+#endif /* MIN_VERSION_random */
+
 /* tool gcc-6.2.0 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "6.2.0"
@@ -166,10 +177,10 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "chapter26-0.1.0.0-7XAKjxe81WuLxqQNzL6QWz"
+#define CURRENT_PACKAGE_KEY "chapter26-0.1.0.0-JIDWdz7CrQEGIamZQ7sm8P"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "chapter26-0.1.0.0-7XAKjxe81WuLxqQNzL6QWz"
+#define CURRENT_COMPONENT_ID "chapter26-0.1.0.0-JIDWdz7CrQEGIamZQ7sm8P"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

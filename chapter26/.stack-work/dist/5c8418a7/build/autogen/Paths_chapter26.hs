@@ -29,12 +29,12 @@ version :: Version
 version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\bin"
-libdir     = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\lib\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0-7XAKjxe81WuLxqQNzL6QWz"
-dynlibdir  = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\lib\\x86_64-windows-ghc-8.2.2"
-datadir    = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\share\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0"
-libexecdir = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\libexec\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0"
-sysconfdir = "C:\\Users\\julianj\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\etc"
+bindir     = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\bin"
+libdir     = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\lib\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0-JIDWdz7CrQEGIamZQ7sm8P"
+dynlibdir  = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\lib\\x86_64-windows-ghc-8.2.2"
+datadir    = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\share\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0"
+libexecdir = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\libexec\\x86_64-windows-ghc-8.2.2\\chapter26-0.1.0.0"
+sysconfdir = "C:\\Users\\julia\\projects\\haskellbook\\chapter26\\.stack-work\\install\\d318cd9c\\etc"
 
 getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "chapter26_bindir") (\_ -> return bindir)

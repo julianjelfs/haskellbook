@@ -1,21 +1,21 @@
-[1 of 2] Compiling Main             ( C:\Users\jjelfs\AppData\Local\Temp\stack16800\network-2.6.3.4\Setup.hs, C:\Users\jjelfs\AppData\Local\Temp\stack16800\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\Main.o )
-[2 of 2] Compiling StackSetupShim   ( C:\sr\setup-exe-src\setup-shim-Z6RU0evB.hs, C:\Users\jjelfs\AppData\Local\Temp\stack16800\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\StackSetupShim.o )
-Linking C:\Users\jjelfs\AppData\Local\Temp\stack16800\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\setup.exe ...
+[1 of 2] Compiling Main             ( C:\Users\julia\AppData\Local\Temp\stack1776\network-2.6.3.4\Setup.hs, C:\Users\julia\AppData\Local\Temp\stack1776\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\Main.o )
+[2 of 2] Compiling StackSetupShim   ( C:\sr\setup-exe-src\setup-shim-Z6RU0evB.hs, C:\Users\julia\AppData\Local\Temp\stack1776\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\StackSetupShim.o )
+Linking C:\Users\julia\AppData\Local\Temp\stack1776\network-2.6.3.4\.stack-work\dist\5c8418a7\setup\setup.exe ...
 Configuring network-2.6.3.4...
 configure: WARNING: unrecognized options: --with-compiler
 checking build system type... x86_64-pc-mingw64
 checking host system type... x86_64-pc-mingw64
-checking for gcc... C:\Users\jjelfs\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe
+checking for gcc... C:\Users\julia\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe
 checking whether the C compiler works... yes
 checking for C compiler default output file name... a.exe
 checking for suffix of executables... .exe
 checking whether we are cross compiling... no
 checking for suffix of object files... o
 checking whether we are using the GNU C compiler... yes
-checking whether C:\Users\jjelfs\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe accepts -g... yes
-checking for C:\Users\jjelfs\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe option to accept ISO C89... none needed
+checking whether C:\Users\julia\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe accepts -g... yes
+checking for C:\Users\julia\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe option to accept ISO C89... none needed
 checking for an ANSI C-conforming const... yes
-checking how to run the C preprocessor... C:\Users\jjelfs\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe -E
+checking how to run the C preprocessor... C:\Users\julia\AppData\Local\Programs\stack\X86_64~1\GHC-82~1.2\mingw\bin\gcc.exe -E
 checking for grep that handles long lines and -e... /usr/bin/grep
 checking for egrep... /usr/bin/grep -E
 checking for ANSI C header files... yes

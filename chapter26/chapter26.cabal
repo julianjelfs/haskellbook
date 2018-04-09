@@ -15,13 +15,14 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib, EitherT, ReaderT, StateT, Scotty, Exercises, HitCount, Whatever
+  exposed-modules:     Lib, EitherT, ReaderT, StateT, Scotty, Exercises, HitCount, Whatever, Morra
   build-depends:       base >= 4.7 && < 5
                      , scotty
                      , transformers
                      , containers
                      , text
                      , mtl
+                     , random
   default-language:    Haskell2010
 
 source-repository head
