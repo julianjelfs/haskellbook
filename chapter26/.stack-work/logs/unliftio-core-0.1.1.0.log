@@ -1,7 +1,0 @@
-Configuring unliftio-core-0.1.1.0...
-Preprocessing library for unliftio-core-0.1.1.0..
-Building library for unliftio-core-0.1.1.0..
-[1 of 2] Compiling Control.Monad.IO.Unlift ( src\Control\Monad\IO\Unlift.hs, .stack-work\dist\5c8418a7\build\Control\Monad\IO\Unlift.o )
-[2 of 2] Compiling Paths_unliftio_core ( .stack-work\dist\5c8418a7\build\autogen\Paths_unliftio_core.hs, .stack-work\dist\5c8418a7\build\Paths_unliftio_core.o )
-Installing library in C:\sr\snapshots\9f8b1558\lib\x86_64-windows-ghc-8.2.2\unliftio-core-0.1.1.0-3wrHy3Ijr0BBoYMyh4oX3g
-Registering library for unliftio-core-0.1.1.0..
