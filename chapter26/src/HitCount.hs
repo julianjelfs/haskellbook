@@ -29,7 +29,7 @@ bumpBoomp :: Text
           -> M.Map Text Integer
           -> (M.Map Text Integer, Integer)
 bumpBoomp k m = (M.insert k bump m, bump)
-  where bump = (fromMaybe 0 (M.lookup k m)) + 1
+  where bump = fromMaybe 0 (M.lookup k m) + 1
 
 app :: Scotty ()
 app = 

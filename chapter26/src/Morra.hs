@@ -6,6 +6,7 @@ import Control.Monad.IO.Class
 import System.Exit   (exitSuccess)
 import Control.Monad (forever)
 
+
 data Player = Human | Computer deriving (Show, Eq)
 data Winner = HumanWins | ComputerWins | NeitherWins
 
@@ -28,8 +29,8 @@ humanTurn = do
 turn :: StateT Scores IO Player
 turn = do
   (h, c) <- get
-  h' <- liftIO $ humanTurn
-  c' <- liftIO $ computerTurn
+  h' <- liftIO humanTurn
+  c' <- liftIO computerTurn
   let w = turnWinner h' c'
   case w of
     Human -> put (h+1, c)
@@ -53,7 +54,7 @@ gameWinner (h, c)
   | otherwise = NeitherWins
 
 main :: IO ()
-main = do
+main = 
   forever $ do
     scores <- play
     case gameWinner scores of
@@ -63,5 +64,5 @@ main = do
       ComputerWins -> do
         putStrLn "Computer Wins"
         exitSuccess
-      _ -> putStrLn $ "On we go..." ++ (show scores)
+      _ -> putStrLn $ "On we go..." ++ show scores
 

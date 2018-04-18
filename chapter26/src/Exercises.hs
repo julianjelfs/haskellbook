@@ -1,5 +1,4 @@
 module Exercises where
-
 import Control.Monad.Trans.Reader
 import Control.Monad.Trans.State
 import Control.Monad.Trans.Maybe
@@ -15,9 +14,7 @@ rDec = do
 rShow :: Show a => ReaderT a Identity String
 --don't really get this implementation
 --rShow = ReaderT $ Identity . show
-rShow = do
-  v <- ask
-  return $ show v
+rShow = show <$> ask
 
 rPrintAndInc :: (Num a, Show a) => ReaderT a IO a
 rPrintAndInc = do

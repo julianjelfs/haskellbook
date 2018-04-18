@@ -36,7 +36,7 @@ resolver: lts-9.21
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
 packages:
-- chapter14\addition
+- chapter14/addition
 - chapter8
 - chapter15
 - chapter16
@@ -47,8 +47,8 @@ packages:
 - chapter24
 - chapter25
 - chapter26
-- hangman\hangman
-- chapter14\morse
+- hangman/hangman
+- chapter14/morse
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 # extra-deps: []
