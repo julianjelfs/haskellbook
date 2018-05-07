@@ -22,6 +22,11 @@ rPrintAndInc = do
   liftIO (putStrLn $ "Hi: " ++ show v)
   return $ v + 1
 
+wrong :: String -> Int
+wrong str =
+  str ++ "wrong"
+
+
 sPrintIncAccum :: (Num a, Show a) => StateT a IO String
 sPrintIncAccum = do 
   s <- get

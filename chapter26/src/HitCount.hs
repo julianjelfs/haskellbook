@@ -19,6 +19,10 @@ data Config =
     , prefix :: Text
   }
 
+wrong :: String -> Int
+wrong str = str ++ "test"
+
+
 type Scotty =
   ScottyT Text (ReaderT Config IO)
 
