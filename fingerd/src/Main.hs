@@ -35,8 +35,8 @@ instance ToRow User where
   toRow (User id_ username shell homeDir realName phone) =
     toRow (id_, username, shell, homeDir, realName, phone)
 
-createUser :: Query
-createUser =
+createUsers :: Query
+createUsers =
   " CREATE TABLE IF NOT EXISTS users \
   \  (id INTEGER PRIMARY KEY AUTOINCREMENT, \
   \  username TEXT UNIQUE, \
@@ -61,6 +61,67 @@ data DuplicateData =
 instance Exception DuplicateData
 
 type UserRow = (Null, Text, Text, Text, Text, Text)
+
+getUser :: Connection -> Text -> IO (Maybe User)
+getUser conn username = do
+  results <- query conn getUserQuery (Only username)
+  case results of
+    [] -> return Nothing
+    [user] -> return $ Just user
+    _ -> throwIO DuplicateData
+
+createDatabase :: IO ()
+createDatabase = do
+  conn <- open "finger.db"
+  execute_ conn createUsers
+  execute conn insertUser meRow
+  rows <- query_ conn allUsers
+  mapM_ print (rows :: [User])
+  SQLite.close conn
+  where
+    meRow :: UserRow
+    meRow =
+      ( Null
+      , "jjelfs"
+      , "/bin/fish"
+      , "/home/jjelfs"
+      , "Julian Jelfs"
+      , "07867-538-921")
+
+returnUsers :: Connection -> Socket -> IO ()
+returnUsers conn soc = do
+  rows <- query_ conn allUsers
+  let usernames = username <$> rows
+      newlineSeparated = T.concat $ intersperse "\n" usernames
+  sendAll soc (encodeUtf8 newlineSeparated)
+
+formatUser :: User -> ByteString
+formatUser (User _ username shell homeDir realName _) =
+  BS.concat
+    [ "Login: "
+    , e username
+    , "\t\t\t\t"
+    , "Name: "
+    , e realName
+    , "\n"
+    , "Directory: "
+    , e homeDir
+    , "\t\t\t"
+    , "Shell: "
+    , e shell
+    , "\n"
+    ]
+  where
+    e = encodeUtf8
+
+returnUser :: Connection -> Socket -> Text -> IO ()
+returnUser conn soc username = do
+  maybeUser <- getUser conn (T.strip username)
+  case maybeUser of
+    Nothing -> do
+      putStrLn $ "Couldn't find matching user for username: " ++ show username
+      pure ()
+    Just user -> sendAll soc (formatUser user)
 
 main :: IO ()
 main = putStrLn "hello world"
