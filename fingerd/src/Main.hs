@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
 
 module Main where
 
@@ -12,12 +11,11 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Text.Encoding (decodeUtf8, encodeUtf8)
 import Data.Typeable
-import Database.SQLite.Simple hiding (close)
+import Database.SQLite.Simple hiding (bind, close)
 import qualified Database.SQLite.Simple as SQLite
 import Database.SQLite.Simple.Types
-import Network.Socket hiding (close, recv)
+import Network.Socket hiding (recv)
 import Network.Socket.ByteString (recv, sendAll)
-import Text.RawString.QQ
 
 data User = User
   { userId :: Integer
@@ -123,5 +121,33 @@ returnUser conn soc username = do
       pure ()
     Just user -> sendAll soc (formatUser user)
 
+handleQuery :: Connection -> Socket -> IO ()
+handleQuery conn soc = do
+  msg <- recv soc 1024
+  case msg of
+    "\r\n" -> returnUsers conn soc
+    name -> returnUser conn soc (decodeUtf8 name)
+
+handleQueries :: Connection -> Socket -> IO ()
+handleQueries conn sock =
+  forever $ do
+    (soc, _) <- accept sock
+    putStrLn "Got connection, handling query"
+    handleQuery conn soc
+    close soc
+
 main :: IO ()
-main = putStrLn "hello world"
+main =
+  withSocketsDo $ do
+    addrinfos <-
+      getAddrInfo
+        (Just (defaultHints {addrFlags = [AI_PASSIVE]}))
+        Nothing
+        (Just "79")
+    let serveraddr = head addrinfos
+    sock <- socket (addrFamily serveraddr) Stream defaultProtocol
+    bind sock (addrAddress serveraddr)
+    listen sock 1
+    conn <- open "finger.db"
+    handleQueries conn sock
+    close sock
